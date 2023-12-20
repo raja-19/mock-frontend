@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en" data-critters-container="">
+  <head>
+    <meta charset="utf-8">
+    <title>Blueriq Devtools</title>
+    <base href="./">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link rel="icon" type="image/x-icon">
+    <style>@font-face{font-family:Roboto;src:url(Roboto-Thin.f7a95c9c5999532c.woff2) format("woff2"),url(Roboto-Thin.c13c157cb81e8ebb.woff) format("woff");font-weight:100;font-style:normal}@font-face{font-family:Roboto;src:url(Roboto-ThinItalic.b0e084abf689f393.woff2) format("woff2"),url(Roboto-ThinItalic.1111028df6cea564.woff) format("woff");font-weight:100;font-style:italic}@font-face{font-family:Roboto;src:url(Roboto-Light.0e01b6cd13b3857f.woff2) format("woff2"),url(Roboto-Light.603ca9a537b88428.woff) format("woff");font-weight:300;font-style:normal}@font-face{font-family:Roboto;src:url(Roboto-LightItalic.232ef4b20215f720.woff2) format("woff2"),url(Roboto-LightItalic.1b5e142f787151c8.woff) format("woff");font-weight:300;font-style:italic}@font-face{font-family:Roboto;src:url(Roboto-Regular.475ba9e4e2d63456.woff2) format("woff2"),url(Roboto-Regular.bcefbfee882bc1cb.woff) format("woff");font-weight:400;font-style:normal}@font-face{font-family:Roboto;src:url(Roboto-RegularItalic.e3a9ebdaac06bbc4.woff2) format("woff2"),url(Roboto-RegularItalic.0668fae6af0cf8c2.woff) format("woff");font-weight:400;font-style:italic}@font-face{font-family:Roboto;src:url(Roboto-Medium.457532032ceb0168.woff2) format("woff2"),url(Roboto-Medium.6e1ae5f0b324a0aa.woff) format("woff");font-weight:500;font-style:normal}@font-face{font-family:Roboto;src:url(Roboto-MediumItalic.872f7060602d55d2.woff2) format("woff2"),url(Roboto-MediumItalic.e06fb533801cbb08.woff) format("woff");font-weight:500;font-style:italic}@font-face{font-family:Roboto;src:url(Roboto-Bold.447291a88c067396.woff2) format("woff2"),url(Roboto-Bold.fc482e6133cf5e26.woff) format("woff");font-weight:700;font-style:normal}@font-face{font-family:Roboto;src:url(Roboto-BoldItalic.1b15168ef6fa4e16.woff2) format("woff2"),url(Roboto-BoldItalic.e26ba339b06f09f7.woff) format("woff");font-weight:700;font-style:italic}@font-face{font-family:Roboto;src:url(Roboto-Black.2eaa390d458c877d.woff2) format("woff2"),url(Roboto-Black.b25f67ad8583da68.woff) format("woff");font-weight:900;font-style:normal}@font-face{font-family:Roboto;src:url(Roboto-BlackItalic.7dc03ee444552bc5.woff2) format("woff2"),url(Roboto-BlackItalic.c8dc642467cb3099.woff) format("woff");font-weight:900;font-style:italic}*,:before,:after{box-sizing:border-box}html{-moz-tab-size:4;tab-size:4}html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji"}html{font-family:Roboto,Arial,Helvetica Neue,sans-serif;line-height:1.5}body{font-family:inherit;line-height:inherit}*,:before,:after{box-sizing:border-box;border-width:0;border-style:solid;border-color:var(--gray-200)}html{font-size:14px}body{background-color:var(--application-background);color:var(--application-background-contrast);font-weight:400;font-size:1rem}html{font-weight:400;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}:root{--text-dark-on:rgba(255 255 255 / 70%);--text-dark-high-emphasis:rgba(255 255 255 / var(--opacity-high));--text-dark-medium-emphasis:rgba(255 255 255 / var(--opacity-medium));--text-dark-disabled:rgba(255 255 255 / var(--opacity-disabled));--text-light-on:rgba(0 0 0 / 63%);--text-light-high-emphasis:rgba(0 0 0 / var(--opacity-high));--text-light-medium-emphasis:rgba(0 0 0 / var(--opacity-medium));--text-light-disabled:rgba(0 0 0 / var(--opacity-disabled));--opacity-high:.87;--opacity-medium:.71;--opacity-disabled:.38;--opacity-low:.16;--opacity-lowest:.05}:root{--gray-100:#e7e7e7;--gray-200:#a1a1a1;--gray-300:#7b7b7b;--gray-400:#5e5e5e;--gray-500:#656565;--gray-600:#3c3c3c;--gray-700:#333;--gray-800:#2c2c2c;--gray-900:#1f1f1f;--gray-100-contrast:var(--text-light-on);--gray-200-contrast:var(--text-light-on);--gray-300-contrast:var(--text-dark-high-emphasis);--gray-400-contrast:var(--text-dark-high-emphasis);--gray-500-contrast:var(--text-dark-high-emphasis);--gray-600-contrast:var(--text-dark-high-emphasis);--gray-700-contrast:var(--text-dark-high-emphasis);--gray-800-contrast:var(--text-dark-high-emphasis);--gray-900-contrast:var(--text-dark-high-emphasis);--gray-depth-1:rgba(101, 101, 101, var(--opacity-medium));--gray-depth-2:rgba(101, 101, 101, var(--opacity-disabled));--gray-depth-3:rgba(101, 101, 101, var(--opacity-low));--primary-100:#b5e8f5;--primary-200:#83d9ef;--primary-300:#51cae9;--primary-400:#2cbee4;--primary-500:rgb(7, 179, 223);--primary-600:#06acdb;--primary-700:#05a3d7;--primary-800:#049ad2;--primary-900:#028bca;--primary-100-contrast:#000000;--primary-200-contrast:#000000;--primary-300-contrast:#000000;--primary-400-contrast:#000000;--primary-500-contrast:#000000;--primary-600-contrast:var(--text-dark-high-emphasis);--primary-700-contrast:var(--text-dark-high-emphasis);--primary-800-contrast:var(--text-dark-high-emphasis);--primary-900-contrast:var(--text-dark-high-emphasis);--primary-depth-1-contrast:white;--primary-depth-1:rgba(7, 179, 223, var(--opacity-medium));--primary-depth-2-contrast:white;--primary-depth-2:rgba(7, 179, 223, var(--opacity-disabled));--primary-depth-3-contrast:white;--primary-depth-3:rgba(7, 179, 223, var(--opacity-low));--secondary-100:#f5e0c5;--secondary-200:#eecc9e;--secondary-300:#e7b877;--secondary-400:#e2a85a;--secondary-500:rgb(221, 153, 61);--secondary-600:#d99137;--secondary-700:#d4862f;--secondary-800:#cf7c27;--secondary-900:#c76b1a;--secondary-100-contrast:#000000;--secondary-200-contrast:#000000;--secondary-300-contrast:#000000;--secondary-400-contrast:#000000;--secondary-500-contrast:#000000;--secondary-600-contrast:#000000;--secondary-700-contrast:#000000;--secondary-800-contrast:#000000;--secondary-900-contrast:var(--text-dark-high-emphasis);--secondary-depth-1:rgba(221, 153, 61, var(--opacity-medium));--secondary-depth-2:rgba(221, 153, 61, var(--opacity-disabled));--secondary-depth-3:rgba(221, 153, 61, var(--opacity-low));--pink-100:#e7b8ec;--pink-200:#d789df;--pink-300:#c65ad2;--pink-400:#ba36c9;--pink-500:rgb(174, 19, 191);--pink-600:#a711b9;--pink-700:#9d0eb1;--pink-800:#940ba9;--pink-900:#84069b;--pink-100-contrast:#000000;--pink-200-contrast:#000000;--pink-300-contrast:#000000;--pink-400-contrast:#ffffff;--pink-500-contrast:#ffffff;--pink-600-contrast:#ffffff;--pink-700-contrast:#ffffff;--pink-800-contrast:#ffffff;--pink-900-contrast:#ffffff;--pink-depth-1:rgba(174, 19, 191, var(--opacity-medium));--pink-depth-2:rgba(174, 19, 191, var(--opacity-disabled));--pink-depth-3:rgba(174, 19, 191, var(--opacity-low));--purple-100:#cbcce7;--purple-200:#a8aad7;--purple-300:#8588c7;--purple-400:#6b6fbb;--purple-500:rgb(81, 85, 175);--purple-600:#4a4ea8;--purple-700:#40449f;--purple-800:#373b96;--purple-900:#272a86;--purple-100-contrast:#000000;--purple-200-contrast:#000000;--purple-300-contrast:#000000;--purple-400-contrast:#ffffff;--purple-500-contrast:#ffffff;--purple-600-contrast:#ffffff;--purple-700-contrast:#ffffff;--purple-800-contrast:#ffffff;--purple-900-contrast:var(--text-dark-high-emphasis);--purple-depth-1:rgba(81, 85, 175, var(--opacity-medium));--purple-depth-2:rgba(81, 85, 175, var(--opacity-disabled));--purple-depth-3:rgba(81, 85, 175, var(--opacity-low));--red-100:#f5b9b3;--red-200:#ee8a80;--red-300:#e75b4d;--red-400:#e23826;--red-500:rgb(221, 21, 0);--red-600:#d91200;--red-700:#d40f00;--red-800:#cf0c00;--red-900:#c70600;--red-100-contrast:#000000;--red-200-contrast:#000000;--red-300-contrast:#000000;--red-400-contrast:#000000;--red-500-contrast:#ffffff;--red-600-contrast:#ffffff;--red-700-contrast:#ffffff;--red-800-contrast:#ffffff;--red-900-contrast:var(--text-dark-high-emphasis);--red-depth-1:rgba(221, 21, 0, var(--opacity-medium));--red-depth-2:rgba(221, 21, 0, var(--opacity-disabled));--red-depth-3:rgba(221, 21, 0, var(--opacity-low));--application-base:black;--application-background:#1f1f1f;--application-toolbar:#2c2c2c;--application-sidepanel:#2c2c2c;--application-card:rgba(255, 255, 255, var(--opacity-lowest));--application-separator:rgba(255, 255, 255, var(--opacity-low));--application-code:rgba(255, 255, 255, .05);--application-dialog:#3c3c3c;--application-scrollbar:#656565;--application-disabled:rgba(255, 255, 255, var(--opacity-low));--application-field:rgba(255, 255, 255, var(--opacity-lowest));--application-info:var(--primary-900);--application-success:#41a144;--application-warning:#e88a00;--application-error:var(--red-500);--application-fatal:var(--application-error);--application-base-contrast:var(--text-dark-on);--application-background-contrast:var(--text-dark-high-emphasis);--application-toolbar-contrast:var(--text-dark-high-emphasis);--application-sidepanel-contrast:var(--text-dark-high-emphasis);--application-disabled-contrast:var(--text-dark-disabled);--application-favorite-contrast:#f2b01e;--monokai-yellow:#e6db74;--monokai-orange:#fd971f;--monokai-red:#f92672;--monokai-magenta:#fd5ff0;--monokai-violet:#ae81ff;--monokai-blue:#66d9ef;--monokai-cyan:#a1efe4;--monokai-green:#a6e22e}*{scrollbar-color:var(--gray-500) var(--application-card);scrollbar-width:thin}*{--tw-shadow:0 0 #0000}*{--tw-ring-inset:var(--tw-empty, );--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59, 130, 246, .5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000}</style>
+    <link rel="stylesheet" href="styles.18564d5188dedc8c.css" media="all" onload="this.media='all'">
+    <noscript>
+      <link rel="stylesheet" href="styles.18564d5188dedc8c.css">
+    </noscript>
+    <style>@media only screen and (max-width: 220px){.header-actions[_ngcontent-ng-c2441343542]{flex-direction:column;align-self:center;height:auto}.hide-on-collapsed[_ngcontent-ng-c2441343542], .hide-on-collapsed-x[_ngcontent-ng-c2441343542]{display:none}}@media only screen and (max-height: 220px){.hide-on-collapsed[_ngcontent-ng-c2441343542], .hide-on-collapsed-y[_ngcontent-ng-c2441343542]{display:none}}.transition-width[_ngcontent-ng-c2441343542]{transition-property:width}[_nghost-ng-c2441343542]     bq-form-field>div{margin-bottom:0}</style>
+    <style>.bq-icon{background-repeat:no-repeat;display:inline-block;fill:currentcolor;vertical-align:middle}</style>
+    <style>[_nghost-ng-c577160053]     bq-expansion-panel>div{height:100%}</style>
+    <style>[_nghost-ng-c1126138160]{display:flex;flex-wrap:nowrap;justify-content:flex-start;align-items:stretch;overflow:hidden;width:100%;height:100%}[_nghost-ng-c1126138160] > .as-split-gutter[_ngcontent-ng-c1126138160]{border:none;flex-grow:0;flex-shrink:0;background-color:#eee;display:flex;align-items:center;justify-content:center}[_nghost-ng-c1126138160] > .as-split-gutter.as-split-gutter-collapsed[_ngcontent-ng-c1126138160]{flex-basis:1px!important;pointer-events:none}[_nghost-ng-c1126138160] > .as-split-gutter[_ngcontent-ng-c1126138160] > .as-split-gutter-icon[_ngcontent-ng-c1126138160]{width:100%;height:100%;background-position:center center;background-repeat:no-repeat}[_nghost-ng-c1126138160]    >.as-split-area{flex-grow:0;flex-shrink:0;overflow-x:hidden;overflow-y:auto}[_nghost-ng-c1126138160]    >.as-split-area.as-hidden{flex:0 1 0px!important;overflow-x:hidden;overflow-y:hidden}.as-horizontal[_nghost-ng-c1126138160]{flex-direction:row}.as-horizontal[_nghost-ng-c1126138160] > .as-split-gutter[_ngcontent-ng-c1126138160]{flex-direction:row;cursor:col-resize;height:100%}.as-horizontal[_nghost-ng-c1126138160] > .as-split-gutter[_ngcontent-ng-c1126138160] > .as-split-gutter-icon[_ngcontent-ng-c1126138160]{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==)}.as-horizontal[_nghost-ng-c1126138160]    >.as-split-area{height:100%}.as-vertical[_nghost-ng-c1126138160]{flex-direction:column}.as-vertical[_nghost-ng-c1126138160] > .as-split-gutter[_ngcontent-ng-c1126138160]{flex-direction:column;cursor:row-resize;width:100%}.as-vertical[_nghost-ng-c1126138160] > .as-split-gutter[_ngcontent-ng-c1126138160]   .as-split-gutter-icon[_ngcontent-ng-c1126138160]{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAFCAMAAABl/6zIAAAABlBMVEUAAADMzMzIT8AyAAAAAXRSTlMAQObYZgAAABRJREFUeAFjYGRkwIMJSeMHlBkOABP7AEGzSuPKAAAAAElFTkSuQmCC)}.as-vertical[_nghost-ng-c1126138160]    >.as-split-area{width:100%}.as-vertical[_nghost-ng-c1126138160]    >.as-split-area.as-hidden{max-width:0}.as-disabled[_nghost-ng-c1126138160] > .as-split-gutter[_ngcontent-ng-c1126138160]{cursor:default}.as-disabled[_nghost-ng-c1126138160] > .as-split-gutter[_ngcontent-ng-c1126138160]   .as-split-gutter-icon[_ngcontent-ng-c1126138160]{background-image:url()}.as-transition.as-init[_nghost-ng-c1126138160]:not(.as-dragging) > .as-split-gutter[_ngcontent-ng-c1126138160], .as-transition.as-init[_nghost-ng-c1126138160]:not(.as-dragging)    >.as-split-area{transition:flex-basis .3s}</style>
+    <style>[_nghost-ng-c3816593608]   bq-tree[_ngcontent-ng-c3816593608]{overflow-x:auto}[_nghost-ng-c3816593608]   bq-tree-node[_ngcontent-ng-c3816593608]{overflow:visible!important}</style>
+    <style>.bq-tree{display:flex;flex-direction:column}</style>
+    <style>[_nghost-ng-c2798898945] > div[_ngcontent-ng-c2798898945]:hover     .actions .edit-button{opacity:1}</style>
+    <style>.min-w-10[_ngcontent-ng-c1222727704]{min-width:2.5rem}[_ngcontent-ng-c1222727704]:hover     *{color:inherit!important}</style>
+    <style>input[_ngcontent-ng-c3807256266]:checked{background-color:currentcolor}.circle[_ngcontent-ng-c3807256266]{display:none}input[_ngcontent-ng-c3807256266]:checked + .circle[_ngcontent-ng-c3807256266]{display:block}.cursor-inherit[_ngcontent-ng-c3807256266]{cursor:inherit}</style>
+  </head>
+  <body class="dark">
+    <dt-root ng-version="16.1.6">
+      <dt-layout>
+        <div class="flex flex-row h-screen ng-star-inserted">
+          <dt-toolbar _nghost-ng-c2441343542="">
+            <div _ngcontent-ng-c2441343542="" class="flex flex-col overflow-hidden h-full transform transition-width w-screen">
+              <div _ngcontent-ng-c2441343542="" class="header-actions flex flex-row flex-wrap flex-shrink-0 items-center h-12">
+                <button _ngcontent-ng-c2441343542="" bq-icon-button="" class="m-0 bq-button-base ng-star-inserted">
+                  <span tabindex="-1">
+                    <bq-icon _ngcontent-ng-c2441343542="" icon="double-arrow-right" class="block transform transition-none bq-icon ng-star-inserted" style="height: 1.4rem; width: 1.4rem;">
+                      <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="100%" height="100%" fit="" preserveAspectRatio="xMidYMid meet" fill="currentColor" focusable="false">
+                          <path fill="none" d="M0 0h24v24H0z"></path>
+                          <path d="M13.5 5H11l5 7-5 7h2.5l5-7z"></path>
+                          <path d="M8.5 5H6l5 7-5 7h2.5l5-7z"></path>
+                        </svg>
+                      </div>
+                    </bq-icon>
+                    <!----><!---->
+                  </span>
+                </button>
+                <bq-tooltip class="ng-tns-c794289210-9 hidden ng-star-inserted">
+                  <!---->
+                </bq-tooltip>
+                <!----><!---->
+                <button _ngcontent-ng-c2441343542="" bq-icon-button="" class="m-0 bq-button-base">
+                  <span tabindex="-1">
+                    <bq-icon _ngcontent-ng-c2441343542="" icon="select-highlight" class="bq-icon" style="height: 1.4rem; width: 1.4rem;">
+                      <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="100%" height="100%" fit="" preserveAspectRatio="xMidYMid meet" focusable="false">
+                          <path fill="none" d="M0 0h24v24H0z"></path>
+                          <path d="M17 5h-2V3h2v2zm2-2v2h2V3h-2zm0 6h2V7h-2v2zm0 4h2v-2h-2v2zm-8 8h2v-2h-2v2zM7 5h2V3H7v2zM3 5h2V3H3v2zm0 12h2v-2H3v2zm0 4h2v-2H3v2zm8-16h2V3h-2v2zM3 9h2V7H3v2zm4 12h2v-2H7v2zm-4-8h2v-2H3v2zm12 2v6l2.29-2.29 2.3 2.29L21 19.59l-2.29-2.29L21 15h-6z"></path>
+                        </svg>
+                      </div>
+                    </bq-icon>
+                  </span>
+                </button>
+                <bq-tooltip class="ng-tns-c794289210-0 hidden ng-star-inserted">
+                  <!---->
+                </bq-tooltip>
+                <!---->
+                <bq-form-field _ngcontent-ng-c2441343542="" appearance="compact" class="hide-on-collapsed-x flex-1 max-w-xs compact ng-star-inserted" _nghost-ng-c2798898945="">
+                  <div _ngcontent-ng-c2798898945="" class="mb-5 relative">
+                    <div _ngcontent-ng-c2798898945="" class="form-field-wrapper h-stack relative w-full bg-application-field border-b outline-none rounded-none box-border pl-3 border-application-separator">
+                      <div _ngcontent-ng-c2798898945="" class="empty:hide flex self-center items-center mr-2"></div>
+                      <div _ngcontent-ng-c2798898945="" class="h-item-fill relative">
+                        <label _ngcontent-ng-c2798898945="" color-position="text" class="absolute mb-0 -mt-2 pt-4 left-0 top-0 z-10 leading-tight cursor-text pointer-events-none select-none duration-friendly truncate w-full opacity-subtext -mt-6 text-xs ng-star-inserted" for="bq-field-2" aria-owns="bq-field-2">
+                          <bq-label _ngcontent-ng-c2441343542="">Active session</bq-label>
+                        </label>
+                        <!---->
+                        <select _ngcontent-ng-c2441343542="" bq-input="" id="bq-field-2" class="ng-untouched ng-pristine ng-valid">
+                          <option _ngcontent-ng-c2441343542="" value="0: Object" class="ng-star-inserted"> Main </option>
+                          <!---->
+                        </select>
+                      </div>
+                      <div _ngcontent-ng-c2798898945="" class="empty:hide flex self-center items-center mx-2">
+                        <!---->
+                      </div>
+                    </div>
+                    <div _ngcontent-ng-c2798898945=""></div>
+                  </div>
+                </bq-form-field>
+                <span class="contents">
+                  <button _ngcontent-ng-c2441343542="" bq-icon-button="" bq-tooltip="Reload project" class="m-0 bq-button-base ng-star-inserted">
+                    <span tabindex="-1">
+                      <bq-icon _ngcontent-ng-c2441343542="" icon="reload" class="bq-icon ng-star-inserted" style="height: 1.4rem; width: 1.4rem;">
+                        <div>
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="100%" height="100%" fit="" preserveAspectRatio="xMidYMid meet" focusable="false">
+                            <path d="M0 0h24v24H0V0z" fill="none"></path>
+                            <path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"></path>
+                          </svg>
+                        </div>
+                      </bq-icon>
+                      <!----><!----><!---->
+                    </span>
+                  </button>
+                </span>
+                <bq-tooltip class="ng-tns-c794289210-17 hidden ng-star-inserted">
+                  <!---->
+                </bq-tooltip>
+                <!----><!----><!---->
+                <div _ngcontent-ng-c2441343542="" class="m-0 ml-auto">
+                  <button _ngcontent-ng-c2441343542="" bq-icon-button="" bq-tooltip="Customize toolbar" class="m-0 bq-button-base ng-star-inserted">
+                    <span tabindex="-1">
+                      <bq-icon _ngcontent-ng-c2441343542="" icon="menu" class="bq-icon" style="height: 1.4rem; width: 1.4rem;">
+                        <div>
+                          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 24 24" width="100%" height="100%" fit="" preserveAspectRatio="xMidYMid meet" fill="currentColor" focusable="false">
+                            <path d="M0 0h24v24H0V0z" fill="none"></path>
+                            <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path>
+                          </svg>
+                        </div>
+                      </bq-icon>
+                    </span>
+                  </button>
+                  <bq-tooltip class="ng-tns-c794289210-21 hidden ng-star-inserted">
+                    <!---->
+                  </bq-tooltip>
+                  <!----><!---->
+                  <bq-menu _ngcontent-ng-c2441343542="" class="ng-tns-c4133805913-10 ng-star-inserted">
+                    <!---->
+                  </bq-menu>
+                  <!----><!---->
+                  <button _ngcontent-ng-c2441343542="" bq-icon-button="" bq-tooltip="Close toolbar" class="m-0 bq-button-base ng-star-inserted">
+                    <span tabindex="-1">
+                      <bq-icon _ngcontent-ng-c2441343542="" icon="close" class="bq-icon" style="height: 1.4rem; width: 1.4rem;">
+                        <div>
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="100%" height="100%" fit="" preserveAspectRatio="xMidYMid meet" fill="currentColor" focusable="false">
+                            <path d="M0 0h24v24H0V0z" fill="none"></path>
+                            <path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path>
+                          </svg>
+                        </div>
+                      </bq-icon>
+                    </span>
+                  </button>
+                  <bq-tooltip class="ng-tns-c794289210-11 hidden ng-star-inserted">
+                    <!---->
+                  </bq-tooltip>
+                  <!----><!---->
+                </div>
+              </div>
+              <div _ngcontent-ng-c2441343542="" class="flex flex-grow overflow-y-auto hide-on-collapsed">
+                <bq-tabs _ngcontent-ng-c2441343542="" class="w-full">
+                  <div class="relative overflow-hidden flex flex-col w-full h-full max-w-full p-0 m-0">
+                    <div class="flex flex-row flex-shrink-0 flex-wrap justify-start overflow-hidden">
+                      <div tabindex="1" class="bq-tab-header active ng-star-inserted">
+                        <!----><span bq-tooltip="" truncate="" class="truncate">Profile</span>
+                        <bq-tooltip class="ng-tns-c794289210-12 hidden ng-star-inserted">
+                          <!---->
+                        </bq-tooltip>
+                        <!---->
+                        <div bq-tooltip="" truncate="" class="pill truncate"></div>
+                        <bq-tooltip class="ng-tns-c794289210-13 hidden ng-star-inserted">
+                          <!---->
+                        </bq-tooltip>
+                        <!----><!----><!---->
+                      </div>
+                      <div tabindex="1" class="bq-tab-header ng-star-inserted">
+                        <!----><span bq-tooltip="" truncate="" class="truncate">Element</span>
+                        <bq-tooltip class="ng-tns-c794289210-14 hidden ng-star-inserted">
+                          <!---->
+                        </bq-tooltip>
+                        <!---->
+                        <div bq-tooltip="" truncate="" class="pill truncate"></div>
+                        <bq-tooltip class="ng-tns-c794289210-15 hidden ng-star-inserted">
+                          <!---->
+                        </bq-tooltip>
+                        <!----><!----><!---->
+                      </div>
+                      <!----><!---->
+                    </div>
+                    <bq-tab _ngcontent-ng-c2441343542="" label="Profile" class="overflow-hidden flex-grow top-0 left-0 right-0 bottom-0 block relative overflow-x-hidden overflow-y-auto z-10">
+                      <div class="h-full overflow-auto" id="0">
+                        <!---->
+                        <dt-profile-management _ngcontent-ng-c2441343542="" _nghost-ng-c577160053="" class="ng-star-inserted">
+                          <div _ngcontent-ng-c577160053="" class="wrapper flex h-full flex-row border-t border-application-separator">
+                            <as-split _ngcontent-ng-c577160053="" unit="percent" _nghost-ng-c1126138160="" class="as-percent as-vertical as-init" dir="ltr">
+                              <as-split-area _ngcontent-ng-c577160053="" size="30" minsize="20" class="as-split-area" style="order: 0; flex: 0 0 calc(30% - 3.3px);">
+                                <dt-profile-instances _ngcontent-ng-c577160053="" class="instances flex h-full overflow-auto px-2 bg-application-card" _nghost-ng-c3816593608="">
+                                  <div _ngcontent-ng-c3816593608="" class="flex flex-col flex-1">
+                                    <div _ngcontent-ng-c3816593608="" class="flex">
+                                      <dt-profile-filter _ngcontent-ng-c3816593608="">
+                                        <div class="flex items-center flex-wrap">
+                                          <bq-form-field appearance="compact" class="flex-grow mr-2 compact" _nghost-ng-c2798898945="">
+                                            <div _ngcontent-ng-c2798898945="" class="mb-5 relative">
+                                              <div _ngcontent-ng-c2798898945="" class="form-field-wrapper h-stack relative w-full bg-application-field border-b outline-none rounded-none box-border pl-3 border-application-separator">
+                                                <div _ngcontent-ng-c2798898945="" class="empty:hide flex self-center items-center mr-2">
+                                                  <bq-prefix class="inline-flex">
+                                                    <bq-icon icon="search" class="bq-icon" style="height: 1.5rem; width: 1.5rem;">
+                                                      <div>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 24 24" width="100%" height="100%" fit="" preserveAspectRatio="xMidYMid meet" fill="currentColor" focusable="false">
+                                                          <path fill="none" d="M0 0h24v24H0V0z"></path>
+                                                          <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                                                        </svg>
+                                                      </div>
+                                                    </bq-icon>
+                                                  </bq-prefix>
+                                                </div>
+                                                <div _ngcontent-ng-c2798898945="" class="h-item-fill relative">
+                                                  <!----><input bq-input="" placeholder="Search" class="ng-pristine ng-valid ng-touched" id="bq-field-0">
+                                                </div>
+                                                <div _ngcontent-ng-c2798898945="" class="empty:hide flex self-center items-center mx-2">
+                                                  <!---->
+                                                </div>
+                                              </div>
+                                              <div _ngcontent-ng-c2798898945=""></div>
+                                            </div>
+                                          </bq-form-field>
+                                          <div class="flex">
+                                            <bq-pill bq-color="primary" _nghost-ng-c1222727704="" class="bq-primary cursor-default inline-grid min-w-0">
+                                              <div _ngcontent-ng-c1222727704="" bq-tooltip="" truncate="" class="leading-loose text-sm select-none h-7 min-w-10 my-1 mr-1 px-1 border rounded-full outline-none border-application-separator px-2 border-transparent bg-primary text-primary-contrast truncate"> All </div>
+                                              <bq-tooltip class="ng-tns-c794289210-2 hidden ng-star-inserted">
+                                                <!---->
+                                              </bq-tooltip>
+                                              <!---->
+                                            </bq-pill>
+                                            <bq-pill bq-color="primary" _nghost-ng-c1222727704="" class="bq-primary cursor-default inline-grid min-w-0">
+                                              <div _ngcontent-ng-c1222727704="" bq-tooltip="" truncate="" class="leading-loose text-sm select-none h-7 min-w-10 my-1 mr-1 px-1 border rounded-full outline-none border-application-separator px-2 border-primary truncate"> Singleton </div>
+                                              <bq-tooltip class="ng-tns-c794289210-3 hidden ng-star-inserted">
+                                                <!---->
+                                              </bq-tooltip>
+                                              <!---->
+                                            </bq-pill>
+                                            <bq-pill bq-color="primary" _nghost-ng-c1222727704="" class="bq-primary cursor-default inline-grid min-w-0">
+                                              <div _ngcontent-ng-c1222727704="" bq-tooltip="" truncate="" class="leading-loose text-sm select-none h-7 min-w-10 my-1 mr-1 px-1 border rounded-full outline-none border-application-separator px-2 truncate border-primary"> Multiton </div>
+                                              <bq-tooltip class="ng-tns-c794289210-4 hidden ng-star-inserted">
+                                                <!---->
+                                              </bq-tooltip>
+                                              <!---->
+                                            </bq-pill>
+                                          </div>
+                                        </div>
+                                      </dt-profile-filter>
+                                      <dt-profile-export _ngcontent-ng-c3816593608="">
+                                        <button bq-icon-button="" bq-color="gray" bq-tooltip="Export profile" class="mx-0 bq-button-base bq-gray">
+                                          <span tabindex="-1">
+                                            <bq-icon icon="export" class="bq-icon" style="height: 1.4rem; width: 1.4rem;">
+                                              <div>
+                                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 24 24" width="100%" height="100%" fit="" preserveAspectRatio="xMidYMid meet" fill="currentColor" focusable="false">
+                                                  <path d="M0 0h24v24H0V0z" fill="none"></path>
+                                                  <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"></path>
+                                                </svg>
+                                              </div>
+                                            </bq-icon>
+                                            <bq-icon icon="caret-down" size="sm" class="bq-icon" style="height: 0.875rem; width: 0.875rem;">
+                                              <div>
+                                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 24 24" width="100%" height="100%" fit="" preserveAspectRatio="xMidYMid meet" fill="currentColor" focusable="false">
+                                                  <path opacity=".87" fill="none" d="M24 24H0V0h24v24z"></path>
+                                                  <path d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6-1.41-1.41z"></path>
+                                                </svg>
+                                              </div>
+                                            </bq-icon>
+                                          </span>
+                                        </button>
+                                        <bq-tooltip class="ng-tns-c794289210-5 hidden ng-star-inserted">
+                                          <!---->
+                                        </bq-tooltip>
+                                        <!---->
+                                        <bq-menu class="ng-tns-c4133805913-6 ng-star-inserted">
+                                          <!---->
+                                        </bq-menu>
+                                      </dt-profile-export>
+                                    </div>
+                                    <bq-tree _ngcontent-ng-c3816593608="" role="tree" class="cdk-tree overflow-auto h-full bq-tree">
+                                      <bq-tree-node _ngcontent-ng-c3816593608="" class="cdk-nested-tree-node cdk-tree-node bq-tree-node ng-star-inserted" role="treeitem" aria-level="1" aria-expanded="false">
+                                        <div>
+                                          <div _ngcontent-ng-c3816593608="" class="flex flex-row flex-auto items-center ng-star-inserted">
+                                            <button _ngcontent-ng-c3816593608="" bq-icon-button="" class="m-0 cursor-pointer bq-button-base">
+                                              <span tabindex="-1">
+                                                <bq-icon _ngcontent-ng-c3816593608="" icon="caret-right" size="xl" class="block transform bq-icon" style="height: 1.5rem; width: 1.5rem;">
+                                                  <div>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 24 24" width="100%" height="100%" fit="" preserveAspectRatio="xMidYMid meet" fill="currentColor" focusable="false">
+                                                      <path d="M0 0h24v24H0V0z" fill="none"></path>
+                                                      <path d="M10.02 6 8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"></path>
+                                                    </svg>
+                                                  </div>
+                                                </bq-icon>
+                                              </span>
+                                            </button>
+                                            @User@ (1) 
+                                            <button _ngcontent-ng-c3816593608="" bq-icon-button="" bq-tooltip="Add instance" class="add-instance bq-button-base ng-star-inserted">
+                                              <span tabindex="-1">
+                                                <bq-icon _ngcontent-ng-c3816593608="" icon="add-item" size="lg" class="bq-icon" style="height: 1.2rem; width: 1.2rem;">
+                                                  <div>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" width="100%" height="100%" fit="" preserveAspectRatio="xMidYMid meet" fill="currentColor" focusable="false">
+                                                      <path d="M450-280h60v-170h170v-60H510v-170h-60v170H280v60h170v170ZM120-120v-720h720v720H120Zm60-60h600v-600H180v600Zm0 0v-600 600Z"></path>
+                                                    </svg>
+                                                  </div>
+                                                </bq-icon>
+                                              </span>
+                                            </button>
+                                            <bq-tooltip class="ng-tns-c794289210-18 hidden ng-star-inserted">
+                                              <!---->
+                                            </bq-tooltip>
+                                            <!----><!---->
+                                          </div>
+                                          <!----><!---->
+                                        </div>
+                                        <div class="flex flex-col ml-8 flex-1 break-words hidden">
+                                          <!---->
+                                        </div>
+                                      </bq-tree-node>
+                                      <bq-tree-node _ngcontent-ng-c3816593608="" class="cdk-nested-tree-node cdk-tree-node bq-tree-node ng-star-inserted" role="treeitem" aria-level="1" aria-expanded="false">
+                                        <div>
+                                          <div _ngcontent-ng-c3816593608="" class="flex flex-row flex-auto items-center ng-star-inserted">
+                                            <button _ngcontent-ng-c3816593608="" bq-icon-button="" class="m-0 cursor-pointer bq-button-base invisible">
+                                              <span tabindex="-1">
+                                                <bq-icon _ngcontent-ng-c3816593608="" icon="caret-right" size="xl" class="block transform bq-icon" style="height: 1.5rem; width: 1.5rem;">
+                                                  <div>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 24 24" width="100%" height="100%" fit="" preserveAspectRatio="xMidYMid meet" fill="currentColor" focusable="false">
+                                                      <path d="M0 0h24v24H0V0z" fill="none"></path>
+                                                      <path d="M10.02 6 8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"></path>
+                                                    </svg>
+                                                  </div>
+                                                </bq-icon>
+                                              </span>
+                                            </button>
+                                            Kind (0) 
+                                            <button _ngcontent-ng-c3816593608="" bq-icon-button="" bq-tooltip="Add instance" class="add-instance bq-button-base ng-star-inserted">
+                                              <span tabindex="-1">
+                                                <bq-icon _ngcontent-ng-c3816593608="" icon="add-item" size="lg" class="bq-icon" style="height: 1.2rem; width: 1.2rem;">
+                                                  <div>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" width="100%" height="100%" fit="" preserveAspectRatio="xMidYMid meet" fill="currentColor" focusable="false">
+                                                      <path d="M450-280h60v-170h170v-60H510v-170h-60v170H280v60h170v170ZM120-120v-720h720v720H120Zm60-60h600v-600H180v600Zm0 0v-600 600Z"></path>
+                                                    </svg>
+                                                  </div>
+                                                </bq-icon>
+                                              </span>
+                                            </button>
+                                            <bq-tooltip class="ng-tns-c794289210-19 hidden ng-star-inserted">
+                                              <!---->
+                                            </bq-tooltip>
+                                            <!----><!---->
+                                          </div>
+                                          <!----><!---->
+                                        </div>
+                                        <div class="flex flex-col ml-8 flex-1 break-words hidden">
+                                          <!---->
+                                        </div>
+                                      </bq-tree-node>
+                                      <bq-tree-node _ngcontent-ng-c3816593608="" class="cdk-nested-tree-node cdk-tree-node bq-tree-node ng-star-inserted" role="treeitem" aria-level="1" aria-expanded="false">
+                                        <div>
+                                          <div _ngcontent-ng-c3816593608="" class="flex flex-row flex-auto items-center ng-star-inserted">
+                                            <button _ngcontent-ng-c3816593608="" bq-icon-button="" class="m-0 cursor-pointer bq-button-base invisible">
+                                              <span tabindex="-1">
+                                                <bq-icon _ngcontent-ng-c3816593608="" icon="caret-right" size="xl" class="block transform bq-icon" style="height: 1.5rem; width: 1.5rem;">
+                                                  <div>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 24 24" width="100%" height="100%" fit="" preserveAspectRatio="xMidYMid meet" fill="currentColor" focusable="false">
+                                                      <path d="M0 0h24v24H0V0z" fill="none"></path>
+                                                      <path d="M10.02 6 8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"></path>
+                                                    </svg>
+                                                  </div>
+                                                </bq-icon>
+                                              </span>
+                                            </button>
+                                            Persoon (0) 
+                                            <button _ngcontent-ng-c3816593608="" bq-icon-button="" bq-tooltip="Add instance" class="add-instance bq-button-base ng-star-inserted">
+                                              <span tabindex="-1">
+                                                <bq-icon _ngcontent-ng-c3816593608="" icon="add-item" size="lg" class="bq-icon" style="height: 1.2rem; width: 1.2rem;">
+                                                  <div>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" width="100%" height="100%" fit="" preserveAspectRatio="xMidYMid meet" fill="currentColor" focusable="false">
+                                                      <path d="M450-280h60v-170h170v-60H510v-170h-60v170H280v60h170v170ZM120-120v-720h720v720H120Zm60-60h600v-600H180v600Zm0 0v-600 600Z"></path>
+                                                    </svg>
+                                                  </div>
+                                                </bq-icon>
+                                              </span>
+                                            </button>
+                                            <bq-tooltip class="ng-tns-c794289210-20 hidden ng-star-inserted">
+                                              <!---->
+                                            </bq-tooltip>
+                                            <!----><!---->
+                                          </div>
+                                          <!----><!---->
+                                        </div>
+                                        <div class="flex flex-col ml-8 flex-1 break-words hidden">
+                                          <!---->
+                                        </div>
+                                      </bq-tree-node>
+                                      <bq-tree-node _ngcontent-ng-c3816593608="" class="cdk-nested-tree-node cdk-tree-node bq-tree-node ng-star-inserted" role="treeitem" aria-level="1" aria-expanded="false">
+                                        <div>
+                                          <div _ngcontent-ng-c3816593608="" class="flex flex-row flex-auto items-center ng-star-inserted">
+                                            <button _ngcontent-ng-c3816593608="" bq-icon-button="" class="m-0 cursor-pointer bq-button-base">
+                                              <span tabindex="-1">
+                                                <bq-icon _ngcontent-ng-c3816593608="" icon="caret-right" size="xl" class="block transform bq-icon" style="height: 1.5rem; width: 1.5rem;">
+                                                  <div>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 24 24" width="100%" height="100%" fit="" preserveAspectRatio="xMidYMid meet" fill="currentColor" focusable="false">
+                                                      <path d="M0 0h24v24H0V0z" fill="none"></path>
+                                                      <path d="M10.02 6 8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"></path>
+                                                    </svg>
+                                                  </div>
+                                                </bq-icon>
+                                              </span>
+                                            </button>
+                                            Verzekerde (1) <!---->
+                                          </div>
+                                          <!----><!---->
+                                        </div>
+                                        <div class="flex flex-col ml-8 flex-1 break-words hidden">
+                                          <!---->
+                                        </div>
+                                      </bq-tree-node>
+                                      <bq-tree-node _ngcontent-ng-c3816593608="" class="cdk-nested-tree-node cdk-tree-node bq-tree-node ng-star-inserted" role="treeitem" aria-level="1" aria-expanded="false">
+                                        <div>
+                                          <div _ngcontent-ng-c3816593608="" class="flex flex-row flex-auto items-center ng-star-inserted">
+                                            <button _ngcontent-ng-c3816593608="" bq-icon-button="" class="m-0 cursor-pointer bq-button-base">
+                                              <span tabindex="-1">
+                                                <bq-icon _ngcontent-ng-c3816593608="" icon="caret-right" size="xl" class="block transform bq-icon" style="height: 1.5rem; width: 1.5rem;">
+                                                  <div>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 24 24" width="100%" height="100%" fit="" preserveAspectRatio="xMidYMid meet" fill="currentColor" focusable="false">
+                                                      <path d="M0 0h24v24H0V0z" fill="none"></path>
+                                                      <path d="M10.02 6 8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"></path>
+                                                    </svg>
+                                                  </div>
+                                                </bq-icon>
+                                              </span>
+                                            </button>
+                                            system (1) <!---->
+                                          </div>
+                                          <!----><!---->
+                                        </div>
+                                        <div class="flex flex-col ml-8 flex-1 break-words hidden">
+                                          <!---->
+                                        </div>
+                                      </bq-tree-node>
+                                      <!---->
+                                    </bq-tree>
+                                  </div>
+                                </dt-profile-instances>
+                              </as-split-area>
+                              <as-split-area _ngcontent-ng-c577160053="" size="70" minsize="20" class="flex flex-1 flex-col overflow-hidden as-split-area" style="order: 2; flex: 0 0 calc(70% - 7.7px);">
+                                <div _ngcontent-ng-c577160053="" class="attributes flex flex-1 overflow-hidden border-b border-application-separator bg-application-card">
+                                  <!----><span _ngcontent-ng-c577160053="" class="font-medium text-application-disabled-button-contrast m-auto ng-star-inserted">No selected instance</span><!---->
+                                </div>
+                                <bq-expansion-panel _ngcontent-ng-c577160053="" title="Expression evaluator" icon="expression" class="expression ng-tns-c792357030-1 ng-star-inserted">
+                                  <div title="" class="flex flex-col w-full overflow-hidden bg-application-card ng-tns-c792357030-1 mb-4">
+                                    <div class="flex flex-row items-center px-2 h-10 border-b border-application-separator cursor-pointer ng-tns-c792357030-1">
+                                      <div class="w-5 mr-1 ng-tns-c792357030-1">
+                                        <bq-icon size="lg" class="ng-tns-c792357030-1 bq-icon ng-star-inserted" style="height: 1.2rem; width: 1.2rem;">
+                                          <div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 53.33 53.33" width="100%" height="100%" fit="" preserveAspectRatio="xMidYMid meet" fill="currentColor" focusable="false">
+                                              <defs>
+                                                <clipPath id="a" clipPathUnits="userSpaceOnUse">
+                                                  <path d="M0 40h40V0H0z"></path>
+                                                </clipPath>
+                                              </defs>
+                                              <g clip-path="url(#a)" transform="matrix(1.33333 0 0 -1.33333 0 53.33)">
+                                                <path fill="currentColor" d="M22.45 26.16v4.91a6.14 6.14 0 0 0 6.13 6.13h3.68v2.45h-3.68A8.6 8.6 0 0 1 20 31.07a8.6 8.6 0 0 1-8.58 8.58H7.74V37.2h3.68a6.13 6.13 0 0 0 6.13-6.13V17.58h-6.13v-2.45h6.13V9a6.13 6.13 0 0 0-6.13-6.13H7.74V.42h3.68A8.6 8.6 0 0 1 20 9 8.6 8.6 0 0 1 28.58.42h3.68v2.45h-3.68A6.14 6.14 0 0 0 22.45 9v6.13h6.13v2.45h-6.13v7.36z"></path>
+                                              </g>
+                                            </svg>
+                                          </div>
+                                        </bq-icon>
+                                        <!---->
+                                      </div>
+                                      <span bq-tooltip="" truncate="" class="flex-1 ng-tns-c792357030-1 truncate">Expression evaluator</span>
+                                      <bq-tooltip class="ng-tns-c794289210-7 hidden ng-star-inserted">
+                                        <!---->
+                                      </bq-tooltip>
+                                      <!----><span bq-tooltip="" truncate="" class="pill ng-tns-c792357030-1 truncate"></span>
+                                      <bq-tooltip class="ng-tns-c794289210-8 hidden ng-star-inserted">
+                                        <!---->
+                                      </bq-tooltip>
+                                      <!----><!---->
+                                      <bq-icon icon="caret-up" size="xl3" class="opacity-subtext duration-friendly transform transition-none ng-tns-c792357030-1 bq-icon rotate-180" style="height: 2rem; width: 2rem;">
+                                        <div>
+                                          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 24 24" width="100%" height="100%" fit="" preserveAspectRatio="xMidYMid meet" fill="currentColor" focusable="false">
+                                            <path fill="none" d="M0 0h24v24H0V0z"></path>
+                                            <path d="m12 8-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14l-6-6z"></path>
+                                          </svg>
+                                        </div>
+                                      </bq-icon>
+                                    </div>
+                                    <div class="ng-tns-c792357030-1 ng-trigger ng-trigger-bodyExpansion" style="visibility: visible;">
+                                      <div class="ng-tns-c792357030-1 m-4">
+                                        <dt-profile-expression _ngcontent-ng-c577160053="" class="ng-tns-c792357030-1">
+                                          <bq-form-field _nghost-ng-c2798898945="">
+                                            <div _ngcontent-ng-c2798898945="" class="mb-5 relative">
+                                              <div _ngcontent-ng-c2798898945="" class="form-field-wrapper h-stack relative w-full bg-application-field border-b outline-none rounded-none box-border pl-3 border-application-separator">
+                                                <div _ngcontent-ng-c2798898945="" class="empty:hide flex self-center items-center mr-2"></div>
+                                                <div _ngcontent-ng-c2798898945="" class="h-item-fill relative">
+                                                  <label _ngcontent-ng-c2798898945="" color-position="text" class="absolute mb-0 -mt-2 pt-4 left-0 top-0 z-10 leading-tight cursor-text pointer-events-none select-none duration-friendly truncate w-full ng-star-inserted opacity-subtext" for="bq-field-1" aria-owns="bq-field-1" style="">
+                                                    <bq-label>Expression evaluator</bq-label>
+                                                  </label>
+                                                  <textarea bq-input="" name="expression" rows="5" spellcheck="false" class="ng-pristine ng-valid ng-touched" id="bq-field-1"></textarea>
+                                                </div>
+                                                <div _ngcontent-ng-c2798898945="" class="empty:hide flex self-center items-center mx-2">
+                                                  
+                                                </div>
+                                              </div>
+                                              <div _ngcontent-ng-c2798898945=""></div>
+                                            </div>
+                                          </bq-form-field>
+                                          <div class="flex justify-end">
+                                            <!----><button bq-button="" color="primary" class="bq-button-base bq-primary"><span tabindex="-1">Evaluate</span></button>
+                                          </div>
+                                          <!---->
+                                        </dt-profile-expression>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </bq-expansion-panel>
+                              </as-split-area>
+                              <div _ngcontent-ng-c1126138160="" role="slider" tabindex="0" class="as-split-gutter ng-star-inserted" style="flex-basis: 11px; order: 1;" aria-orientation="vertical" aria-valuemin="20" aria-valuenow="30" aria-valuetext="30 percent">
+                                <div _ngcontent-ng-c1126138160="" class="as-split-gutter-icon"></div>
+                              </div>
+                              <!----><!----><!---->
+                            </as-split>
+                          </div>
+                        </dt-profile-management>
+                        <!----><!----><!---->
+                      </div>
+                    </bq-tab>
+                    <bq-tab _ngcontent-ng-c2441343542="" label="Element" class="overflow-hidden top-0 left-0 right-0 bottom-0 block">
+                      <div class="h-full overflow-auto" id="1" hidden="">
+                        <!----><!---->
+                      </div>
+                    </bq-tab>
+                  </div>
+                </bq-tabs>
+              </div>
+            </div>
+          </dt-toolbar>
+          <!---->
+        </div>
+        <!---->
+      </dt-layout>
+    </dt-root>
+    <script src="runtime.4f038000ff790c36.js" type="module"></script><script src="polyfills.6bed40fcc7219735.js" type="module"></script><script src="main.39a42bf0545db79a.js" type="module"></script>
+    <div class="cdk-overlay-container"></div>
+  </body>
+</html>

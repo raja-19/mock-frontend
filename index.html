@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="myscript.js"></script>
+    <base href="/runtime/app/">
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="./theme/blueriq/images/favicon.ico">
+    <meta name="msapplication-TileColor" content="#0077e5">
+    <meta name="msapplication-TileImage" content="./theme/blueriq/images/blueriq-icon-white.png">
+    <meta name="theme-color" content="#0077e5">
+    <link rel="stylesheet" href="styles.2a6a6f1a94adf033.css" media="all" onload="this.media='all'">
+    <noscript>
+      <link rel="stylesheet" href="styles.2a6a6f1a94adf033.css">
+    </noscript>
+    <style>@font-face{font-family:Roboto;src:url(Roboto-Thin.f7a95c9c5999532c.woff2) format("woff2"),url(Roboto-Thin.c13c157cb81e8ebb.woff) format("woff");font-weight:100;font-style:normal}@font-face{font-family:Roboto;src:url(Roboto-ThinItalic.b0e084abf689f393.woff2) format("woff2"),url(Roboto-ThinItalic.1111028df6cea564.woff) format("woff");font-weight:100;font-style:italic}@font-face{font-family:Roboto;src:url(Roboto-Light.0e01b6cd13b3857f.woff2) format("woff2"),url(Roboto-Light.603ca9a537b88428.woff) format("woff");font-weight:300;font-style:normal}@font-face{font-family:Roboto;src:url(Roboto-LightItalic.232ef4b20215f720.woff2) format("woff2"),url(Roboto-LightItalic.1b5e142f787151c8.woff) format("woff");font-weight:300;font-style:italic}@font-face{font-family:Roboto;src:url(Roboto-Regular.475ba9e4e2d63456.woff2) format("woff2"),url(Roboto-Regular.bcefbfee882bc1cb.woff) format("woff");font-weight:400;font-style:normal}@font-face{font-family:Roboto;src:url(Roboto-RegularItalic.e3a9ebdaac06bbc4.woff2) format("woff2"),url(Roboto-RegularItalic.0668fae6af0cf8c2.woff) format("woff");font-weight:400;font-style:italic}@font-face{font-family:Roboto;src:url(Roboto-Medium.457532032ceb0168.woff2) format("woff2"),url(Roboto-Medium.6e1ae5f0b324a0aa.woff) format("woff");font-weight:500;font-style:normal}@font-face{font-family:Roboto;src:url(Roboto-MediumItalic.872f7060602d55d2.woff2) format("woff2"),url(Roboto-MediumItalic.e06fb533801cbb08.woff) format("woff");font-weight:500;font-style:italic}@font-face{font-family:Roboto;src:url(Roboto-Bold.447291a88c067396.woff2) format("woff2"),url(Roboto-Bold.fc482e6133cf5e26.woff) format("woff");font-weight:700;font-style:normal}@font-face{font-family:Roboto;src:url(Roboto-BoldItalic.1b15168ef6fa4e16.woff2) format("woff2"),url(Roboto-BoldItalic.e26ba339b06f09f7.woff) format("woff");font-weight:700;font-style:italic}@font-face{font-family:Roboto;src:url(Roboto-Black.2eaa390d458c877d.woff2) format("woff2"),url(Roboto-Black.b25f67ad8583da68.woff) format("woff");font-weight:900;font-style:normal}@font-face{font-family:Roboto;src:url(Roboto-BlackItalic.7dc03ee444552bc5.woff2) format("woff2"),url(Roboto-BlackItalic.c8dc642467cb3099.woff) format("woff");font-weight:900;font-style:italic}html,body{height:100%}body{margin:0;padding:0;background:#eeeeee;font-family:Roboto,arial,Helvetica Neue,sans-serif}.splashscreen{position:fixed;top:0;left:0;width:100%;height:100%;transition:opacity .35s ease-out;background-position:center center;background-image:url(blueriq-logo.140cefe94d1a7764.svg);background-repeat:no-repeat;background-size:250px;opacity:0}</style>
+    <style>.page-wrapper[_ngcontent-yok-c10]{display:block;height:100%;min-height:100%}</style>
+    <style>.loading-backdrop[_ngcontent-yok-c124]{position:fixed;top:0;left:0;width:100%;height:100vh;z-index:110}.loading-backdrop[_ngcontent-yok-c124]   .loading-wrapper[_ngcontent-yok-c124]{position:fixed;width:100%;height:100vh;background-position:center center;background-image:url(spinner_e.9ac18e6d57ec9aa8.gif);background-repeat:no-repeat}</style>
+    <style type="text/css">
+      body {
+      display: flex;
+      flex-direction: row;
+      height: 100vh;
+      }
+      body > * {
+      flex: none;
+      overflow: auto;
+      box-sizing: border-box;
+      }
+      body > .content {
+      flex: 1 1 auto;
+      order: 1;
+      /** Allocate a layer to constrain the children to. https://stackoverflow.com/a/38796408/171436 */
+      transform: translateZ(0);
+      }
+      body > .splitter {
+      flex: 0 0 4px;
+      order: 2;
+      cursor: col-resize;
+      background: #656565;
+      }
+      body > .devtools {
+      order: 3;
+      border: 0;
+      z-index: 200;
+      background-color: #ccc;
+      }
+      .resizing {
+      user-select: none;
+      pointer-events: none;
+      }
+    </style>
+    <style>.header[_ngcontent-yok-c128]{box-shadow:0 2px 1px -1px #0003,0 1px 1px #00000024,0 1px 3px #0000001f;position:fixed;width:100%;z-index:110}.page[_ngcontent-yok-c128]{margin-bottom:24px}.margin-0[_ngcontent-yok-c128]{padding-top:77px}.margin-1[_ngcontent-yok-c128]{padding-top:154px}.margin-2[_ngcontent-yok-c128]{padding-top:231px}.margin-3[_ngcontent-yok-c128]{padding-top:308px}.margin-4[_ngcontent-yok-c128]{padding-top:385px}.margin-5[_ngcontent-yok-c128]{padding-top:462px}</style>
+    <style>footer[_ngcontent-yok-c127]{max-width:1080px;margin:0 auto;color:#0000008a;text-align:center}footer[_ngcontent-yok-c127]   .img-logo[_ngcontent-yok-c127]{display:inline-block;width:100px;height:40px;margin:auto;background-position:center center;background-image:url(blueriq-logo.140cefe94d1a7764.svg);background-repeat:no-repeat;background-size:100% 100%}footer[_ngcontent-yok-c127]   a[_ngcontent-yok-c127]{color:#0000008a;font-style:normal;text-decoration:none}footer[_ngcontent-yok-c127]   a[_ngcontent-yok-c127]:hover, footer[_ngcontent-yok-c127]   a[_ngcontent-yok-c127]:visited{color:#000000de}footer[_ngcontent-yok-c127]   address[_ngcontent-yok-c127]{font-size:12px;line-height:20px}footer[_ngcontent-yok-c127]   .mat-divider[_ngcontent-yok-c127]{margin-bottom:48px}footer[_ngcontent-yok-c127]:after{display:block;height:50px;content:""}</style>
+    <style>.mat-divider{display:block;margin:0;border-top-width:1px;border-top-style:solid}.mat-divider.mat-divider-vertical{border-top:0;border-right-width:1px;border-right-style:solid}.mat-divider.mat-divider-inset{margin-left:80px}[dir=rtl] .mat-divider.mat-divider-inset{margin-left:auto;margin-right:80px}</style>
+    <style>.dashboard-header[_ngcontent-yok-c89]{display:flex}.mat-toolbar[_ngcontent-yok-c89]{top:0;min-height:77px;padding:0 0 0 16px;background:linear-gradient(to right,#0077e5,#7837d7,#783b95);color:#fff}.mat-toolbar[_ngcontent-yok-c89]   .img-logo-white[_ngcontent-yok-c89]{display:inline-block;width:110px;height:45px;margin:auto;background-position:center center;background-image:url(blueriq-logo-white.ca0c55a71f22397c.svg);background-repeat:no-repeat;background-size:100% 100%}.mat-toolbar[_ngcontent-yok-c89]   h1[_ngcontent-yok-c89]{margin:0 0 0 24px;color:#fff;font-size:20px;font-weight:300;line-height:44px}.mat-toolbar[_ngcontent-yok-c89]   .application-actions[_ngcontent-yok-c89]{text-align:right}.mat-toolbar[_ngcontent-yok-c89]   .application-actions[_ngcontent-yok-c89]   .active-user-menu[_ngcontent-yok-c89]{height:77px;text-align:left}.mat-toolbar[_ngcontent-yok-c89]   .application-actions[_ngcontent-yok-c89]   .active-user-menu[_ngcontent-yok-c89]   .icon[_ngcontent-yok-c89]{height:77px}.mat-toolbar[_ngcontent-yok-c89]   .application-actions[_ngcontent-yok-c89]   .active-user-menu[_ngcontent-yok-c89]   .username[_ngcontent-yok-c89]{padding-top:30px;line-height:20px}</style>
+    <style>.cdk-high-contrast-active .mat-toolbar{outline:solid 1px}.mat-toolbar .mat-mdc-button-base.mat-unthemed{--mdc-text-button-label-text-color: inherit;--mdc-outlined-button-label-text-color: inherit}.mat-toolbar-row,.mat-toolbar-single-row{display:flex;box-sizing:border-box;padding:0 16px;width:100%;flex-direction:row;align-items:center;white-space:nowrap}.mat-toolbar-multiple-rows{display:flex;box-sizing:border-box;flex-direction:column;width:100%}</style>
+    <style type="text/css">
+      /*
+      @angular/flex-layout - workaround for possible browser quirk with mediaQuery listeners
+      see http://bit.ly/2sd4HMP
+      */
+      @media screen and (min-width: 600px), screen and (min-width: 960px), screen and (min-width: 1280px), screen and (min-width: 1920px), screen and (min-width: 1920px) and (max-width: 4999.98px), screen and (max-width: 1919.98px), screen and (min-width: 1280px) and (max-width: 1919.98px), screen and (max-width: 1279.98px), screen and (min-width: 960px) and (max-width: 1279.98px), screen and (max-width: 959.98px), screen and (min-width: 600px) and (max-width: 959.98px), screen and (max-width: 599.98px), screen and (min-width: 0px) and (max-width: 599.98px), print {.fx-query-test{ }}
+    </style>
+    <style>h1[_ngcontent-yok-c24], h2[_ngcontent-yok-c24], h3[_ngcontent-yok-c24], h4[_ngcontent-yok-c24], h5[_ngcontent-yok-c24], h6[_ngcontent-yok-c24]{margin-top:0;color:#0d31bd;font-weight:400}h1[_ngcontent-yok-c24]{font-size:2em}h1.widget[_ngcontent-yok-c24], h2[_ngcontent-yok-c24]{font-size:1.5em}h2.widget[_ngcontent-yok-c24], h3[_ngcontent-yok-c24]{font-size:1.17em}h3.widget[_ngcontent-yok-c24], h4[_ngcontent-yok-c24]{font-size:1.12em}h4.widget[_ngcontent-yok-c24], h5[_ngcontent-yok-c24]{font-size:.83em}h5.widget[_ngcontent-yok-c24], h6[_ngcontent-yok-c24]{font-size:.75em}h6.widget[_ngcontent-yok-c24]{font-size:.66em}</style>
+    <style>.mat-icon{-webkit-user-select:none;user-select:none;background-repeat:no-repeat;display:inline-block;fill:currentColor;height:24px;width:24px;overflow:hidden}.mat-icon.mat-icon-inline{font-size:inherit;height:inherit;line-height:inherit;width:inherit}.mat-icon.mat-ligature-font[fontIcon]::before{content:attr(fontIcon)}[dir=rtl] .mat-icon-rtl-mirror{transform:scale(-1, 1)}.mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-prefix .mat-icon,.mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-suffix .mat-icon{display:block}.mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-prefix .mat-icon-button .mat-icon,.mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-suffix .mat-icon-button .mat-icon{margin:auto}</style>
+    <style>.text-item[_ngcontent-yok-c141]{display:flex;color:#000000de;font-size:14px;line-height:20px}.text-item[_ngcontent-yok-c141]   .gutter[_ngcontent-yok-c141]{display:flex;flex-direction:column;justify-content:center;margin-right:15px;padding:4px 6px}.text-item[_ngcontent-yok-c141]   .text[_ngcontent-yok-c141]{display:flex}.text-item[_ngcontent-yok-c141]   .aligner[_ngcontent-yok-c141]{align-self:center}.text-item.warning[_ngcontent-yok-c141]   .gutter[_ngcontent-yok-c141], .text-item.Warning[_ngcontent-yok-c141]   .gutter[_ngcontent-yok-c141]{background-color:#fdd7b3;color:#f55c00}.text-item.danger[_ngcontent-yok-c141]   .gutter[_ngcontent-yok-c141], .text-item.Danger[_ngcontent-yok-c141]   .gutter[_ngcontent-yok-c141]{background-color:#f5c6cb;color:#ce2b37}.text-item.info[_ngcontent-yok-c141]   .gutter[_ngcontent-yok-c141], .text-item.Info[_ngcontent-yok-c141]   .gutter[_ngcontent-yok-c141]{background-color:#b3d6f7;color:#005ada}.text-item.success[_ngcontent-yok-c141]   .gutter[_ngcontent-yok-c141], .text-item.Success[_ngcontent-yok-c141]   .gutter[_ngcontent-yok-c141]{background-color:#b3e4da;color:#008965}.text-item[_ngcontent-yok-c141]     .emphasis{font-weight:700}.text-item[_ngcontent-yok-c141]     .subtle{text-decoration:underline}.text-item[_ngcontent-yok-c141]     .intense{font-style:italic}</style>
+    <style>.mat-form-field[_ngcontent-yok-c78]{margin-bottom:12px}.mat-form-field-disabled[_ngcontent-yok-c78]   mat-icon[_ngcontent-yok-c78], .mat-form-field-disabled[_ngcontent-yok-c78]   [matsuffix][_ngcontent-yok-c78]{opacity:.35}</style>
+    <style>.mat-form-field{display:inline-block;position:relative;text-align:left}[dir=rtl] .mat-form-field{text-align:right}.mat-form-field-wrapper{position:relative}.mat-form-field-flex{display:inline-flex;align-items:baseline;box-sizing:border-box;width:100%}.mat-form-field-prefix,.mat-form-field-suffix{white-space:nowrap;flex:none;position:relative}.mat-form-field-infix{display:block;position:relative;flex:auto;min-width:0;width:180px}.cdk-high-contrast-active .mat-form-field-infix{border-image:linear-gradient(transparent, transparent)}.mat-form-field-label-wrapper{position:absolute;left:0;box-sizing:content-box;width:100%;height:100%;overflow:hidden;pointer-events:none}[dir=rtl] .mat-form-field-label-wrapper{left:auto;right:0}.mat-form-field-label{position:absolute;left:0;font:inherit;pointer-events:none;width:100%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;transform-origin:0 0;transition:transform 400ms cubic-bezier(0.25, 0.8, 0.25, 1),color 400ms cubic-bezier(0.25, 0.8, 0.25, 1),width 400ms cubic-bezier(0.25, 0.8, 0.25, 1);display:none}[dir=rtl] .mat-form-field-label{transform-origin:100% 0;left:auto;right:0}.cdk-high-contrast-active .mat-form-field-disabled .mat-form-field-label{color:GrayText}.mat-form-field-empty.mat-form-field-label,.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label{display:block}.mat-form-field-autofill-control:-webkit-autofill+.mat-form-field-label-wrapper .mat-form-field-label{display:none}.mat-form-field-can-float .mat-form-field-autofill-control:-webkit-autofill+.mat-form-field-label-wrapper .mat-form-field-label{display:block;transition:none}.mat-input-server:focus+.mat-form-field-label-wrapper .mat-form-field-label,.mat-input-server[placeholder]:not(:placeholder-shown)+.mat-form-field-label-wrapper .mat-form-field-label{display:none}.mat-form-field-can-float .mat-input-server:focus+.mat-form-field-label-wrapper .mat-form-field-label,.mat-form-field-can-float .mat-input-server[placeholder]:not(:placeholder-shown)+.mat-form-field-label-wrapper .mat-form-field-label{display:block}.mat-form-field-label:not(.mat-form-field-empty){transition:none}.mat-form-field-underline{position:absolute;width:100%;pointer-events:none;transform:scale3d(1, 1.0001, 1)}.mat-form-field-ripple{position:absolute;left:0;width:100%;transform-origin:50%;transform:scaleX(0.5);opacity:0;transition:background-color 300ms cubic-bezier(0.55, 0, 0.55, 0.2)}.mat-form-field.mat-focused .mat-form-field-ripple,.mat-form-field.mat-form-field-invalid .mat-form-field-ripple{opacity:1;transform:none;transition:transform 300ms cubic-bezier(0.25, 0.8, 0.25, 1),opacity 100ms cubic-bezier(0.25, 0.8, 0.25, 1),background-color 300ms cubic-bezier(0.25, 0.8, 0.25, 1)}.mat-form-field-subscript-wrapper{position:absolute;box-sizing:border-box;width:100%;overflow:hidden}.mat-form-field-subscript-wrapper .mat-icon,.mat-form-field-label-wrapper .mat-icon{width:1em;height:1em;font-size:inherit;vertical-align:baseline}.mat-form-field-hint-wrapper{display:flex}.mat-form-field-hint-spacer{flex:1 0 1em}.mat-error{display:block}.mat-form-field-control-wrapper{position:relative}.mat-form-field-hint-end{order:1}.mat-form-field._mat-animation-noopable .mat-form-field-label,.mat-form-field._mat-animation-noopable .mat-form-field-ripple{transition:none}.mat-form-field .mat-form-field-prefix .mat-datepicker-toggle .mat-mdc-button-base,.mat-form-field .mat-form-field-suffix .mat-datepicker-toggle .mat-mdc-button-base{width:40px;height:40px;padding:8px 0}.mat-form-field .mat-datepicker-toggle .mat-mdc-icon-button .mat-icon{font-size:1em;display:inline-block;margin:-2px 0 1px}.mat-form-field-type-mat-date-range-input .mat-form-field-infix{width:200px}.mat-form-field-appearance-legacy .mat-form-field-prefix .mat-datepicker-toggle .mat-mdc-icon-button,.mat-form-field-appearance-legacy .mat-form-field-suffix .mat-datepicker-toggle .mat-mdc-icon-button{font-size:inherit;width:1.5em;height:1.5em;padding:0}.mat-form-field-appearance-legacy .mat-form-field-prefix .mat-datepicker-toggle-default-icon,.mat-form-field-appearance-legacy .mat-form-field-suffix .mat-datepicker-toggle-default-icon{width:1em}.mat-form-field-appearance-legacy .mat-form-field-prefix .mat-datepicker-toggle .mat-mdc-icon-button .mat-icon,.mat-form-field-appearance-legacy .mat-form-field-suffix .mat-datepicker-toggle .mat-mdc-icon-button .mat-icon{line-height:1.5em;margin:0}.mat-form-field .mat-datepicker-toggle .mat-mdc-button-base{vertical-align:middle}.mat-form-field:not(.mat-form-field-appearance-legacy) .mat-datepicker-toggle .mat-mdc-button-base{vertical-align:baseline}</style>
+    <style>.mat-form-field-appearance-fill .mat-form-field-flex{border-radius:4px 4px 0 0;padding:.75em .75em 0 .75em}.cdk-high-contrast-active .mat-form-field-appearance-fill .mat-form-field-flex{outline:solid 1px}.cdk-high-contrast-active .mat-form-field-appearance-fill.mat-form-field-disabled .mat-form-field-flex{outline-color:GrayText}.cdk-high-contrast-active .mat-form-field-appearance-fill.mat-focused .mat-form-field-flex{outline:dashed 3px}.mat-form-field-appearance-fill .mat-form-field-underline::before{content:"";display:block;position:absolute;bottom:0;height:1px;width:100%}.mat-form-field-appearance-fill .mat-form-field-ripple{bottom:0;height:2px}.cdk-high-contrast-active .mat-form-field-appearance-fill .mat-form-field-ripple{height:0}.mat-form-field-appearance-fill:not(.mat-form-field-disabled) .mat-form-field-flex:hover~.mat-form-field-underline .mat-form-field-ripple{opacity:1;transform:none;transition:opacity 600ms cubic-bezier(0.25, 0.8, 0.25, 1)}.mat-form-field-appearance-fill._mat-animation-noopable:not(.mat-form-field-disabled) .mat-form-field-flex:hover~.mat-form-field-underline .mat-form-field-ripple{transition:none}.mat-form-field-appearance-fill .mat-form-field-subscript-wrapper{padding:0 1em}</style>
+    <style>.mat-input-element{font:inherit;background:rgba(0,0,0,0);color:currentColor;border:none;outline:none;padding:0;margin:0;width:100%;max-width:100%;vertical-align:bottom;text-align:inherit;box-sizing:content-box}.mat-input-element:-moz-ui-invalid{box-shadow:none}.mat-input-element,.mat-input-element::-webkit-search-cancel-button,.mat-input-element::-webkit-search-decoration,.mat-input-element::-webkit-search-results-button,.mat-input-element::-webkit-search-results-decoration{-webkit-appearance:none}.mat-input-element::-webkit-contacts-auto-fill-button,.mat-input-element::-webkit-caps-lock-indicator,.mat-input-element:not([type=password])::-webkit-credentials-auto-fill-button{visibility:hidden}.mat-input-element[type=date],.mat-input-element[type=datetime],.mat-input-element[type=datetime-local],.mat-input-element[type=month],.mat-input-element[type=week],.mat-input-element[type=time]{line-height:1}.mat-input-element[type=date]::after,.mat-input-element[type=datetime]::after,.mat-input-element[type=datetime-local]::after,.mat-input-element[type=month]::after,.mat-input-element[type=week]::after,.mat-input-element[type=time]::after{content:" ";white-space:pre;width:1px}.mat-input-element::-webkit-inner-spin-button,.mat-input-element::-webkit-calendar-picker-indicator,.mat-input-element::-webkit-clear-button{font-size:.75em}.mat-input-element::placeholder{-webkit-user-select:none;user-select:none;transition:color 400ms 133.3333333333ms cubic-bezier(0.25, 0.8, 0.25, 1)}.mat-input-element::-moz-placeholder{-webkit-user-select:none;user-select:none;transition:color 400ms 133.3333333333ms cubic-bezier(0.25, 0.8, 0.25, 1)}.mat-input-element::-webkit-input-placeholder{-webkit-user-select:none;user-select:none;transition:color 400ms 133.3333333333ms cubic-bezier(0.25, 0.8, 0.25, 1)}.mat-input-element:-ms-input-placeholder{-webkit-user-select:none;user-select:none;transition:color 400ms 133.3333333333ms cubic-bezier(0.25, 0.8, 0.25, 1)}.mat-form-field-hide-placeholder .mat-input-element::placeholder{color:rgba(0,0,0,0) !important;-webkit-text-fill-color:rgba(0,0,0,0);transition:none}.cdk-high-contrast-active .mat-form-field-hide-placeholder .mat-input-element::placeholder{opacity:0}.mat-form-field-hide-placeholder .mat-input-element::-moz-placeholder{color:rgba(0,0,0,0) !important;-webkit-text-fill-color:rgba(0,0,0,0);transition:none}.cdk-high-contrast-active .mat-form-field-hide-placeholder .mat-input-element::-moz-placeholder{opacity:0}.mat-form-field-hide-placeholder .mat-input-element::-webkit-input-placeholder{color:rgba(0,0,0,0) !important;-webkit-text-fill-color:rgba(0,0,0,0);transition:none}.cdk-high-contrast-active .mat-form-field-hide-placeholder .mat-input-element::-webkit-input-placeholder{opacity:0}.mat-form-field-hide-placeholder .mat-input-element:-ms-input-placeholder{color:rgba(0,0,0,0) !important;-webkit-text-fill-color:rgba(0,0,0,0);transition:none}.cdk-high-contrast-active .mat-form-field-hide-placeholder .mat-input-element:-ms-input-placeholder{opacity:0}._mat-animation-noopable .mat-input-element::placeholder{transition:none}._mat-animation-noopable .mat-input-element::-moz-placeholder{transition:none}._mat-animation-noopable .mat-input-element::-webkit-input-placeholder{transition:none}._mat-animation-noopable .mat-input-element:-ms-input-placeholder{transition:none}textarea.mat-input-element{resize:vertical;overflow:auto}textarea.mat-input-element.cdk-textarea-autosize{resize:none}textarea.mat-input-element{padding:2px 0;margin:-2px 0}select.mat-input-element{-moz-appearance:none;-webkit-appearance:none;position:relative;background-color:rgba(0,0,0,0);display:inline-flex;box-sizing:border-box;padding-top:1em;top:-1em;margin-bottom:-1em}select.mat-input-element::-moz-focus-inner{border:0}select.mat-input-element:not(:disabled){cursor:pointer}.mat-form-field-type-mat-native-select .mat-form-field-infix::after{content:"";width:0;height:0;border-left:5px solid rgba(0,0,0,0);border-right:5px solid rgba(0,0,0,0);border-top:5px solid;position:absolute;top:50%;right:0;margin-top:-2.5px;pointer-events:none}[dir=rtl] .mat-form-field-type-mat-native-select .mat-form-field-infix::after{right:auto;left:0}.mat-form-field-type-mat-native-select .mat-input-element{padding-right:15px}[dir=rtl] .mat-form-field-type-mat-native-select .mat-input-element{padding-right:0;padding-left:15px}.mat-form-field-type-mat-native-select .mat-form-field-label-wrapper{max-width:calc(100% - 10px)}.mat-form-field-type-mat-native-select.mat-form-field-appearance-outline .mat-form-field-infix::after{margin-top:-5px}.mat-form-field-type-mat-native-select.mat-form-field-appearance-fill .mat-form-field-infix::after{margin-top:-10px}</style>
+    <style>.mat-form-field-appearance-legacy .mat-form-field-label{transform:perspective(100px)}.mat-form-field-appearance-legacy .mat-form-field-prefix .mat-icon,.mat-form-field-appearance-legacy .mat-form-field-suffix .mat-icon{width:1em}.mat-form-field-appearance-legacy .mat-form-field-prefix .mat-icon-button,.mat-form-field-appearance-legacy .mat-form-field-suffix .mat-icon-button{font:inherit;vertical-align:baseline}.mat-form-field-appearance-legacy .mat-form-field-prefix .mat-icon-button .mat-icon,.mat-form-field-appearance-legacy .mat-form-field-suffix .mat-icon-button .mat-icon{font-size:inherit}.mat-form-field-appearance-legacy .mat-form-field-underline{height:1px}.cdk-high-contrast-active .mat-form-field-appearance-legacy .mat-form-field-underline{height:0;border-top:solid 1px}.mat-form-field-appearance-legacy .mat-form-field-ripple{top:0;height:2px;overflow:hidden}.cdk-high-contrast-active .mat-form-field-appearance-legacy .mat-form-field-ripple{height:0;border-top:solid 2px}.mat-form-field-appearance-legacy.mat-form-field-disabled .mat-form-field-underline{background-position:0;background-color:rgba(0,0,0,0)}.cdk-high-contrast-active .mat-form-field-appearance-legacy.mat-form-field-disabled .mat-form-field-underline{border-top-style:dotted;border-top-width:2px;border-top-color:GrayText}.mat-form-field-appearance-legacy.mat-form-field-invalid:not(.mat-focused) .mat-form-field-ripple{height:1px}</style>
+    <style>.mat-form-field-appearance-outline .mat-form-field-wrapper{margin:.25em 0}.mat-form-field-appearance-outline .mat-form-field-flex{padding:0 .75em 0 .75em;margin-top:-0.25em;position:relative}.mat-form-field-appearance-outline .mat-form-field-prefix,.mat-form-field-appearance-outline .mat-form-field-suffix{top:.25em}.mat-form-field-appearance-outline .mat-form-field-outline{display:flex;position:absolute;top:.25em;left:0;right:0;bottom:0;pointer-events:none}.mat-form-field-appearance-outline .mat-form-field-outline-start,.mat-form-field-appearance-outline .mat-form-field-outline-end{border:1px solid currentColor;min-width:5px}.mat-form-field-appearance-outline .mat-form-field-outline-start{border-radius:5px 0 0 5px;border-right-style:none}[dir=rtl] .mat-form-field-appearance-outline .mat-form-field-outline-start{border-right-style:solid;border-left-style:none;border-radius:0 5px 5px 0}.mat-form-field-appearance-outline .mat-form-field-outline-end{border-radius:0 5px 5px 0;border-left-style:none;flex-grow:1}[dir=rtl] .mat-form-field-appearance-outline .mat-form-field-outline-end{border-left-style:solid;border-right-style:none;border-radius:5px 0 0 5px}.mat-form-field-appearance-outline .mat-form-field-outline-gap{border-radius:.000001px;border:1px solid currentColor;border-left-style:none;border-right-style:none}.mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-outline-gap{border-top-color:rgba(0,0,0,0)}.mat-form-field-appearance-outline .mat-form-field-outline-thick{opacity:0}.mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-start,.mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-end,.mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-gap{border-width:2px}.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline,.mat-form-field-appearance-outline.mat-form-field-invalid .mat-form-field-outline{opacity:0;transition:opacity 100ms cubic-bezier(0.25, 0.8, 0.25, 1)}.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick,.mat-form-field-appearance-outline.mat-form-field-invalid .mat-form-field-outline-thick{opacity:1}.cdk-high-contrast-active .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick{border:3px dashed}.mat-form-field-appearance-outline:not(.mat-form-field-disabled) .mat-form-field-flex:hover .mat-form-field-outline{opacity:0;transition:opacity 600ms cubic-bezier(0.25, 0.8, 0.25, 1)}.mat-form-field-appearance-outline:not(.mat-form-field-disabled) .mat-form-field-flex:hover .mat-form-field-outline-thick{opacity:1}.mat-form-field-appearance-outline .mat-form-field-subscript-wrapper{padding:0 1em}.cdk-high-contrast-active .mat-form-field-appearance-outline.mat-form-field-disabled .mat-form-field-outline{color:GrayText}.mat-form-field-appearance-outline._mat-animation-noopable:not(.mat-form-field-disabled) .mat-form-field-flex:hover~.mat-form-field-outline,.mat-form-field-appearance-outline._mat-animation-noopable .mat-form-field-outline,.mat-form-field-appearance-outline._mat-animation-noopable .mat-form-field-outline-start,.mat-form-field-appearance-outline._mat-animation-noopable .mat-form-field-outline-end,.mat-form-field-appearance-outline._mat-animation-noopable .mat-form-field-outline-gap{transition:none}</style>
+    <style>.mat-form-field-appearance-standard .mat-form-field-flex{padding-top:.75em}.mat-form-field-appearance-standard .mat-form-field-underline{height:1px}.cdk-high-contrast-active .mat-form-field-appearance-standard .mat-form-field-underline{height:0;border-top:solid 1px}.mat-form-field-appearance-standard .mat-form-field-ripple{bottom:0;height:2px}.cdk-high-contrast-active .mat-form-field-appearance-standard .mat-form-field-ripple{height:0;border-top:solid 2px}.mat-form-field-appearance-standard.mat-form-field-disabled .mat-form-field-underline{background-position:0;background-color:rgba(0,0,0,0)}.cdk-high-contrast-active .mat-form-field-appearance-standard.mat-form-field-disabled .mat-form-field-underline{border-top-style:dotted;border-top-width:2px}.mat-form-field-appearance-standard:not(.mat-form-field-disabled) .mat-form-field-flex:hover~.mat-form-field-underline .mat-form-field-ripple{opacity:1;transform:none;transition:opacity 600ms cubic-bezier(0.25, 0.8, 0.25, 1)}.mat-form-field-appearance-standard._mat-animation-noopable:not(.mat-form-field-disabled) .mat-form-field-flex:hover~.mat-form-field-underline .mat-form-field-ripple{transition:none}</style>
+    <style>.mat-form-field[_ngcontent-yok-c79]{margin-bottom:12px}</style>
+    <style>.mat-select{display:inline-block;width:100%;outline:none}.mat-select-trigger{display:inline-flex;align-items:center;cursor:pointer;position:relative;box-sizing:border-box;width:100%}.mat-select-disabled .mat-select-trigger{-webkit-user-select:none;user-select:none;cursor:default}.mat-select-value{width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.mat-select-value-text{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.mat-select-arrow-wrapper{height:16px;flex-shrink:0;display:inline-flex;align-items:center}.mat-form-field-appearance-fill .mat-select-arrow-wrapper{transform:translateY(-50%)}.mat-form-field-appearance-outline .mat-select-arrow-wrapper{transform:translateY(-25%)}.mat-form-field-appearance-standard.mat-form-field-has-label .mat-select:not(.mat-select-empty) .mat-select-arrow-wrapper{transform:translateY(-50%)}.mat-form-field-appearance-standard .mat-select.mat-select-empty .mat-select-arrow-wrapper{transition:transform 400ms cubic-bezier(0.25, 0.8, 0.25, 1)}._mat-animation-noopable.mat-form-field-appearance-standard .mat-select.mat-select-empty .mat-select-arrow-wrapper{transition:none}.mat-select-arrow{width:0;height:0;border-left:5px solid rgba(0,0,0,0);border-right:5px solid rgba(0,0,0,0);border-top:5px solid;margin:0 4px}.mat-form-field.mat-focused .mat-select-arrow{transform:translateX(0)}.mat-select-panel-wrap{flex-basis:100%}.mat-select-panel{min-width:112px;max-width:280px;overflow:auto;-webkit-overflow-scrolling:touch;padding-top:0;padding-bottom:0;max-height:256px;min-width:100%;border-radius:4px;outline:0}.cdk-high-contrast-active .mat-select-panel{outline:solid 1px}.mat-select-panel .mat-optgroup-label,.mat-select-panel .mat-option{font-size:inherit;line-height:3em;height:3em}.mat-form-field-type-mat-select:not(.mat-form-field-disabled) .mat-form-field-flex{cursor:pointer}.mat-form-field-type-mat-select .mat-form-field-label{width:calc(100% - 18px)}.mat-select-placeholder{transition:color 400ms 133.3333333333ms cubic-bezier(0.25, 0.8, 0.25, 1)}._mat-animation-noopable .mat-select-placeholder{transition:none}.mat-form-field-hide-placeholder .mat-select-placeholder{color:rgba(0,0,0,0);-webkit-text-fill-color:rgba(0,0,0,0);transition:none;display:block}.mat-select-min-line:empty::before{content:" ";white-space:pre;width:1px;display:inline-block;visibility:hidden}</style>
+    <style>.mat-option{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;line-height:48px;height:48px;padding:0 16px;text-align:left;text-decoration:none;max-width:100%;position:relative;cursor:pointer;outline:none;display:flex;flex-direction:row;max-width:100%;box-sizing:border-box;align-items:center;-webkit-tap-highlight-color:rgba(0,0,0,0)}.mat-option[disabled]{cursor:default}[dir=rtl] .mat-option{text-align:right}.mat-option .mat-icon{margin-right:16px;vertical-align:middle}.mat-option .mat-icon svg{vertical-align:top}[dir=rtl] .mat-option .mat-icon{margin-left:16px;margin-right:0}.mat-option[aria-disabled=true]{-webkit-user-select:none;user-select:none;cursor:default}.mat-optgroup .mat-option:not(.mat-option-multiple){padding-left:32px}[dir=rtl] .mat-optgroup .mat-option:not(.mat-option-multiple){padding-left:16px;padding-right:32px}.mat-option.mat-active::before{content:""}.cdk-high-contrast-active .mat-option[aria-disabled=true]{opacity:.5}.cdk-high-contrast-active .mat-option.mat-selected:not(.mat-option-multiple)::after{content:"";position:absolute;top:50%;right:16px;transform:translateY(-50%);width:10px;height:0;border-bottom:solid 10px;border-radius:10px}[dir=rtl] .cdk-high-contrast-active .mat-option.mat-selected:not(.mat-option-multiple)::after{right:auto;left:16px}.mat-option-text{display:inline-block;flex-grow:1;overflow:hidden;text-overflow:ellipsis}.mat-option .mat-option-ripple{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none}.mat-option-pseudo-checkbox{margin-right:8px}[dir=rtl] .mat-option-pseudo-checkbox{margin-left:8px;margin-right:0}</style>
+    <style>.mat-form-field[_ngcontent-yok-c75]{margin-bottom:12px}.mat-form-field-disabled[_ngcontent-yok-c75]   mat-icon[_ngcontent-yok-c75], .mat-form-field-disabled[_ngcontent-yok-c75]   [matsuffix][_ngcontent-yok-c75]{opacity:.35}</style>
+    <style>button[_ngcontent-yok-c20]{margin:12px 12px 12px 0;text-transform:uppercase}.Tertiary[_ngcontent-yok-c20]{background-color:transparent;color:#00a482}.Tertiary.mat-raised-button[_ngcontent-yok-c20]{background-color:#00a482;color:#fff}  .Tertiary .mat-button-focus-overlay{background-color:#00a4821f}  .card .default-styling,   .flow-widget.elevate .default-styling{background:#f5f5f5}</style>
+    <style>.mat-button .mat-button-focus-overlay,.mat-icon-button .mat-button-focus-overlay{opacity:0}.mat-button:hover:not(.mat-button-disabled) .mat-button-focus-overlay,.mat-stroked-button:hover:not(.mat-button-disabled) .mat-button-focus-overlay{opacity:.04}@media(hover: none){.mat-button:hover:not(.mat-button-disabled) .mat-button-focus-overlay,.mat-stroked-button:hover:not(.mat-button-disabled) .mat-button-focus-overlay{opacity:0}}.mat-button,.mat-icon-button,.mat-stroked-button,.mat-flat-button{box-sizing:border-box;position:relative;-webkit-user-select:none;user-select:none;cursor:pointer;outline:none;border:none;-webkit-tap-highlight-color:rgba(0,0,0,0);display:inline-block;white-space:nowrap;text-decoration:none;vertical-align:baseline;text-align:center;margin:0;min-width:64px;line-height:36px;padding:0 16px;border-radius:4px;overflow:visible}.mat-button::-moz-focus-inner,.mat-icon-button::-moz-focus-inner,.mat-stroked-button::-moz-focus-inner,.mat-flat-button::-moz-focus-inner{border:0}.mat-button.mat-button-disabled,.mat-icon-button.mat-button-disabled,.mat-stroked-button.mat-button-disabled,.mat-flat-button.mat-button-disabled{cursor:default}.mat-button.cdk-keyboard-focused .mat-button-focus-overlay,.mat-button.cdk-program-focused .mat-button-focus-overlay,.mat-icon-button.cdk-keyboard-focused .mat-button-focus-overlay,.mat-icon-button.cdk-program-focused .mat-button-focus-overlay,.mat-stroked-button.cdk-keyboard-focused .mat-button-focus-overlay,.mat-stroked-button.cdk-program-focused .mat-button-focus-overlay,.mat-flat-button.cdk-keyboard-focused .mat-button-focus-overlay,.mat-flat-button.cdk-program-focused .mat-button-focus-overlay{opacity:.12}.mat-button::-moz-focus-inner,.mat-icon-button::-moz-focus-inner,.mat-stroked-button::-moz-focus-inner,.mat-flat-button::-moz-focus-inner{border:0}.mat-raised-button{box-sizing:border-box;position:relative;-webkit-user-select:none;user-select:none;cursor:pointer;outline:none;border:none;-webkit-tap-highlight-color:rgba(0,0,0,0);display:inline-block;white-space:nowrap;text-decoration:none;vertical-align:baseline;text-align:center;margin:0;min-width:64px;line-height:36px;padding:0 16px;border-radius:4px;overflow:visible;transform:translate3d(0, 0, 0);transition:background 400ms cubic-bezier(0.25, 0.8, 0.25, 1),box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1)}.mat-raised-button::-moz-focus-inner{border:0}.mat-raised-button.mat-button-disabled{cursor:default}.mat-raised-button.cdk-keyboard-focused .mat-button-focus-overlay,.mat-raised-button.cdk-program-focused .mat-button-focus-overlay{opacity:.12}.mat-raised-button::-moz-focus-inner{border:0}.mat-raised-button._mat-animation-noopable{transition:none !important;animation:none !important}.mat-stroked-button{border:1px solid currentColor;padding:0 15px;line-height:34px}.mat-stroked-button .mat-button-ripple.mat-ripple,.mat-stroked-button .mat-button-focus-overlay{top:-1px;left:-1px;right:-1px;bottom:-1px}.mat-fab{box-sizing:border-box;position:relative;-webkit-user-select:none;user-select:none;cursor:pointer;outline:none;border:none;-webkit-tap-highlight-color:rgba(0,0,0,0);display:inline-block;white-space:nowrap;text-decoration:none;vertical-align:baseline;text-align:center;margin:0;min-width:64px;line-height:36px;padding:0 16px;border-radius:4px;overflow:visible;transform:translate3d(0, 0, 0);transition:background 400ms cubic-bezier(0.25, 0.8, 0.25, 1),box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);min-width:0;border-radius:50%;width:56px;height:56px;padding:0;flex-shrink:0}.mat-fab::-moz-focus-inner{border:0}.mat-fab.mat-button-disabled{cursor:default}.mat-fab.cdk-keyboard-focused .mat-button-focus-overlay,.mat-fab.cdk-program-focused .mat-button-focus-overlay{opacity:.12}.mat-fab::-moz-focus-inner{border:0}.mat-fab._mat-animation-noopable{transition:none !important;animation:none !important}.mat-fab .mat-button-wrapper{padding:16px 0;display:inline-block;line-height:24px}.mat-mini-fab{box-sizing:border-box;position:relative;-webkit-user-select:none;user-select:none;cursor:pointer;outline:none;border:none;-webkit-tap-highlight-color:rgba(0,0,0,0);display:inline-block;white-space:nowrap;text-decoration:none;vertical-align:baseline;text-align:center;margin:0;min-width:64px;line-height:36px;padding:0 16px;border-radius:4px;overflow:visible;transform:translate3d(0, 0, 0);transition:background 400ms cubic-bezier(0.25, 0.8, 0.25, 1),box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);min-width:0;border-radius:50%;width:40px;height:40px;padding:0;flex-shrink:0}.mat-mini-fab::-moz-focus-inner{border:0}.mat-mini-fab.mat-button-disabled{cursor:default}.mat-mini-fab.cdk-keyboard-focused .mat-button-focus-overlay,.mat-mini-fab.cdk-program-focused .mat-button-focus-overlay{opacity:.12}.mat-mini-fab::-moz-focus-inner{border:0}.mat-mini-fab._mat-animation-noopable{transition:none !important;animation:none !important}.mat-mini-fab .mat-button-wrapper{padding:8px 0;display:inline-block;line-height:24px}.mat-icon-button{padding:0;min-width:0;width:40px;height:40px;flex-shrink:0;line-height:40px;border-radius:50%}.mat-icon-button i,.mat-icon-button .mat-icon{line-height:24px}.mat-button-ripple.mat-ripple,.mat-button-focus-overlay{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none;border-radius:inherit}.mat-button-ripple.mat-ripple:not(:empty){transform:translateZ(0)}.mat-button-focus-overlay{opacity:0;transition:opacity 200ms cubic-bezier(0.35, 0, 0.25, 1),background-color 200ms cubic-bezier(0.35, 0, 0.25, 1)}._mat-animation-noopable .mat-button-focus-overlay{transition:none}.mat-button-ripple-round{border-radius:50%;z-index:1}.mat-button .mat-button-wrapper>*,.mat-flat-button .mat-button-wrapper>*,.mat-stroked-button .mat-button-wrapper>*,.mat-raised-button .mat-button-wrapper>*,.mat-icon-button .mat-button-wrapper>*,.mat-fab .mat-button-wrapper>*,.mat-mini-fab .mat-button-wrapper>*{vertical-align:middle}.mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-prefix .mat-icon-button,.mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-suffix .mat-icon-button{display:inline-flex;justify-content:center;align-items:center;font-size:inherit;width:2.5em;height:2.5em}.mat-flat-button::before,.mat-raised-button::before,.mat-fab::before,.mat-mini-fab::before{margin:calc(calc(var(--mat-focus-indicator-border-width, 3px) + 2px) * -1)}.mat-stroked-button::before{margin:calc(calc(var(--mat-focus-indicator-border-width, 3px) + 3px) * -1)}.cdk-high-contrast-active .mat-button,.cdk-high-contrast-active .mat-flat-button,.cdk-high-contrast-active .mat-raised-button,.cdk-high-contrast-active .mat-icon-button,.cdk-high-contrast-active .mat-fab,.cdk-high-contrast-active .mat-mini-fab{outline:solid 1px}.mat-datepicker-toggle .mat-mdc-button-base{width:40px;height:40px;padding:8px 0}.mat-datepicker-actions .mat-button-base+.mat-button-base{margin-left:8px}[dir=rtl] .mat-datepicker-actions .mat-button-base+.mat-button-base{margin-left:0;margin-right:8px}</style>
+    <style type="text/css">
+      body.devtools-selecting {
+      cursor: pointer !important;
+      }
+      .devtools-selected {
+      outline: 2px solid #5bc0de !important;
+      }
+      .devtools-element-target:not(.devtools-selected) {
+      outline: 1px solid #5bc0de !important;
+      }
+      .devtools-force-block, .devtools-element-target-force-block {
+      display: block;
+      }
+    </style>
+  </head>
+  <body style="flex-direction: row;" class="devtools-selecting">
+    <div class="content" style="order: 1;">
+      <bq-app-root _nghost-yok-c10="" ng-version="15.2.9">
+        <div _ngcontent-yok-c10="" class="page-wrapper">
+          <router-outlet _ngcontent-yok-c10=""></router-outlet>
+          <!--<ng-component class="ng-star-inserted">-->
+          <bq-project>
+            <bq-session>
+              <bq-page _nghost-yok-c128="" class="ng-star-inserted">
+                <div _ngcontent-yok-c128="" class="header">
+                  <bq-header _ngcontent-yok-c128="" _nghost-yok-c89="" class="ng-star-inserted">
+                    <mat-toolbar _ngcontent-yok-c89="" bqkey="" class="mat-toolbar dashboard-header mat-toolbar-single-row" id="P163_OuderGegevens_1">
+                      <div _ngcontent-yok-c89="" fxlayout="row" fxlayoutalign=" center" fxfill="" style="height: 100%; min-height: 100%; min-width: 100%; width: 100%; flex-direction: row; box-sizing: border-box; display: flex; place-content: center flex-start; align-items: center;">
+                        <div _ngcontent-yok-c89="" fxflex="1 1 0%" style="flex: 1 1 0%; box-sizing: border-box; flex-direction: row; display: flex;">
+                          <span _ngcontent-yok-c89="" class="img-logo-white"></span>
+                          <h1 _ngcontent-yok-c89="" fxflex="" style="flex: 1 1 0%; box-sizing: border-box;">Kinderbijslag Aanvragen</h1>
+                        </div>
+                        <div _ngcontent-yok-c89="" fxflex="" style="flex: 1 1 0%; box-sizing: border-box;">
+                          <!---->
+                        </div>
+                        <!---->
+                      </div>
+                    </mat-toolbar>
+                  </bq-header>
+                  <!---->
+                  <!---->
+                  <!---->
+                </div>
+                <div _ngcontent-yok-c128="" class="page responsive margin-0">
+                  <div _ngcontent-yok-c128="" class="ng-star-inserted"></div>
+                  <bq-container class="ng-tns-c28-1 ng-star-inserted">
+                    <div bqclasses="" bqkey="" class="ng-tns-c28-1 top-container introduction Introduction" id="P163_Infobanner_1">
+                      <bq-heading _nghost-yok-c24="" class="ng-tns-c28-1 ng-star-inserted">
+                        <h2 _ngcontent-yok-c24="" class="ng-star-inserted">
+                          <mat-icon _ngcontent-yok-c24="" role="img" class="" aria-hidden="true" data-mat-icon-type="font"></mat-icon>
+                          Proefberekening kinderbijslag
+                        </h2>
+                        <!---->
+                      </bq-heading>
+                      <!---->
+                      <!---->
+                      <div class="ng-tns-c28-1 ng-star-inserted">
+                        <bq-textitem _nghost-yok-c141="" class="ng-star-inserted">
+                          <div _ngcontent-yok-c141="" bqkey="" bqclasses="" class="text-item" id="P163_BerekenHoogteKinderbijslag_1">
+                            <!---->
+                            <div _ngcontent-yok-c141="" class="aligner">
+                              <bq-textitem-static class="ng-star-inserted">Met de kinderbijslag betaalt de overheid mee aan de kosten die horen bij de opvoeding van een kind. Woont of werkt u in Nederland en heeft u kinderen jonger dan 18 jaar, dan krijgt u waarschijnlijk kinderbijslag. Hoeveel kinderbijslag u krijgt is o.a. afhankelijk van de leeftijd van uw kind. Wilt u weten hoeveel kinderbijslag u krijgt? Maak dan een proefberekening.</bq-textitem-static>
+                              <!---->
+                              <!---->
+                              <!---->
+                            </div>
+                          </div>
+                        </bq-textitem>
+                        <!---->
+                        <!---->
+                      </div>
+                      <!---->
+                    </div>
+                  </bq-container>
+                  <!---->
+                  <div _ngcontent-yok-c128="" class="ng-star-inserted"></div>
+                  <bq-container class="ng-tns-c28-2 ng-star-inserted">
+                    <div bqclasses="" bqkey="" class="ng-tns-c28-2 top-container card" id="P163_OuderGegevens_2">
+                      <bq-heading _nghost-yok-c24="" class="ng-tns-c28-2 ng-star-inserted">
+                        <h2 _ngcontent-yok-c24="" class="ng-star-inserted">
+                          <mat-icon _ngcontent-yok-c24="" role="img" class="" aria-hidden="true" data-mat-icon-type="font"></mat-icon>
+                          Jouw gegevens
+                        </h2>
+                        <!---->
+                      </bq-heading>
+                      <!---->
+                      <!---->
+                      <div class="ng-tns-c28-2 ng-star-inserted">
+                        <bq-container class="ng-tns-c28-3 ng-star-inserted">
+                          <div bqclasses="" bqkey="" class="ng-tns-c28-3 Horizontal" id="P163-C1-C0">
+                            <bq-heading _nghost-yok-c24="" class="ng-tns-c28-3 ng-star-inserted">
+                              <!---->
+                            </bq-heading>
+                            <!---->
+                            <div class="bq-row ng-tns-c28-3 ng-star-inserted">
+                              <bq-string-field _nghost-yok-c78="" id="voornaam" class="bq-column ng-star-inserted" style="z-index: 999; flex-grow: 1; flex-direction: row; box-sizing: border-box; display: flex;" onclick="devtoolsSelect(this);" onmouseover="devtoolsHover(this);" onmouseleave="devtoolsLeave(this);">
+                                <mat-form-field _ngcontent-yok-c78="" appearance="fill" bqclasses="" bqkey="" fxflex="" class="mat-form-field ng-tns-c13-4 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder ng-untouched ng-pristine ng-invalid ng-star-inserted" style="flex: 1 1 0%; box-sizing: border-box;" id="P163_Verzekerde-Voornaam_1">
+                                  <div class="mat-form-field-wrapper ng-tns-c13-4">
+                                    <div class="mat-form-field-flex ng-tns-c13-4">
+                                      <!---->
+                                      <!---->
+                                      <div class="mat-form-field-infix ng-tns-c13-4">
+                                        <input _ngcontent-yok-c78="" matinput="" class="mat-input-element mat-form-field-autofill-control ng-tns-c13-4 ng-untouched ng-pristine ng-invalid cdk-text-field-autofill-monitored" type="text" aria-describedby="mat-hint-0" required="" id="mat-input-0" aria-required="true" data-placeholder="" disabled>
+                                        <span class="mat-form-field-label-wrapper ng-tns-c13-4">
+                                          <label class="mat-form-field-label ng-tns-c13-4 mat-empty mat-form-field-empty ng-star-inserted" id="mat-form-field-label-1" for="mat-input-0" aria-owns="mat-input-0">
+                                            <!---->
+                                            <mat-label _ngcontent-yok-c78="" class="ng-tns-c13-4 ng-star-inserted">Voornaam</mat-label>
+                                            <!---->
+                                            <span aria-hidden="true" class="mat-placeholder-required mat-form-field-required-marker ng-tns-c13-4 ng-star-inserted"> *</span>
+                                            <!---->
+                                          </label>
+                                          <!---->
+                                        </span>
+                                      </div>
+                                      <!---->
+                                    </div>
+                                    <div class="mat-form-field-underline ng-tns-c13-4 ng-star-inserted">
+                                      <span class="mat-form-field-ripple ng-tns-c13-4"></span>
+                                    </div>
+                                    <!---->
+                                    <div class="mat-form-field-subscript-wrapper ng-tns-c13-4">
+                                      <!---->
+                                      <div class="mat-form-field-hint-wrapper ng-tns-c13-4 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);">
+                                        <!---->
+                                        <mat-hint _ngcontent-yok-c78="" class="mat-hint ng-tns-c13-4" id="mat-hint-0"></mat-hint>
+                                        <div class="mat-form-field-hint-spacer ng-tns-c13-4"></div>
+                                      </div>
+                                      <!---->
+                                    </div>
+                                  </div>
+                                </mat-form-field>
+                              </bq-string-field>
+                              <!---->
+                              <bq-string-field _nghost-yok-c78="" id="achternaam" class="bq-column ng-star-inserted" style="z-index: 999; flex-grow: 1; flex-direction: row; box-sizing: border-box; display: flex;" onclick="devtoolsSelect(this);" onmouseover="devtoolsHover(this);" onmouseleave="devtoolsLeave(this);">
+                                <mat-form-field _ngcontent-yok-c78="" appearance="fill" bqclasses="" bqkey="" fxflex="" class="mat-form-field ng-tns-c13-5 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder ng-untouched ng-pristine ng-invalid ng-star-inserted" style="flex: 1 1 0%; box-sizing: border-box;" id="P163_Verzekerde-Achternaam_1">
+                                  <div class="mat-form-field-wrapper ng-tns-c13-5">
+                                    <div class="mat-form-field-flex ng-tns-c13-5">
+                                      <!---->
+                                      <!---->
+                                      <div class="mat-form-field-infix ng-tns-c13-5">
+                                        <input _ngcontent-yok-c78="" id="field" matinput="" class="mat-input-element mat-form-field-autofill-control ng-tns-c13-5 ng-untouched ng-pristine ng-invalid cdk-text-field-autofill-monitored" type="text" aria-describedby="mat-hint-1" required="" id="mat-input-1" aria-required="true" data-placeholder="" disabled>
+                                        <span class="mat-form-field-label-wrapper ng-tns-c13-5">
+                                          <label class="mat-form-field-label ng-tns-c13-5 mat-empty mat-form-field-empty ng-star-inserted" id="mat-form-field-label-3" for="mat-input-1" aria-owns="mat-input-1">
+                                            <!---->
+                                            <mat-label _ngcontent-yok-c78="" class="ng-tns-c13-5 ng-star-inserted">Achternaam</mat-label>
+                                            <!---->
+                                            <span aria-hidden="true" class="mat-placeholder-required mat-form-field-required-marker ng-tns-c13-5 ng-star-inserted"> *</span>
+                                            <!---->
+                                          </label>
+                                          <!---->
+                                        </span>
+                                      </div>
+                                      <!---->
+                                    </div>
+                                    <div class="mat-form-field-underline ng-tns-c13-5 ng-star-inserted">
+                                      <span class="mat-form-field-ripple ng-tns-c13-5"></span>
+                                    </div>
+                                    <!---->
+                                    <div class="mat-form-field-subscript-wrapper ng-tns-c13-5">
+                                      <!---->
+                                      <div class="mat-form-field-hint-wrapper ng-tns-c13-5 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);">
+                                        <!---->
+                                        <mat-hint _ngcontent-yok-c78="" class="mat-hint ng-tns-c13-5" id="mat-hint-1"></mat-hint>
+                                        <div class="mat-form-field-hint-spacer ng-tns-c13-5"></div>
+                                      </div>
+                                      <!---->
+                                    </div>
+                                  </div>
+                                </mat-form-field>
+                              </bq-string-field>
+                              <!---->
+                              <bq-select _nghost-yok-c79="" id="geslacht" class="bq-column ng-star-inserted" style="z-index: 999; flex-grow: 1; flex-direction: row; box-sizing: border-box; display: flex;" onclick="devtoolsSelect(this);" onmouseover="devtoolsHover(this);" onmouseleave="devtoolsLeave(this);">
+                                <mat-form-field _ngcontent-yok-c79="" bqkey="" fxflex="" bqclasses="" appearance="fill" class="mat-form-field ng-tns-c13-6 mat-primary mat-form-field-type-mat-select mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder ng-untouched ng-pristine ng-invalid ng-star-inserted" style="flex: 1 1 0%; box-sizing: border-box;" id="P163_Verzekerde-Geslacht_1">
+                                  <div class="mat-form-field-wrapper ng-tns-c13-6">
+                                    <div class="mat-form-field-flex ng-tns-c13-6">
+                                      <!---->
+                                      <!---->
+                                      <div class="mat-form-field-infix ng-tns-c13-6">
+                                        <mat-select _ngcontent-yok-c79="" role="combobox" aria-autocomplete="none" aria-haspopup="true" class="mat-select ng-tns-c57-7 ng-tns-c13-6 mat-select-required mat-select-empty ng-untouched ng-pristine ng-invalid ng-star-inserted" aria-labelledby="mat-form-field-label-5 mat-select-value-1" aria-describedby="mat-hint-2" id="mat-select-0" tabindex="0" aria-expanded="false" aria-required="true" aria-disabled="false" aria-invalid="false" required="">
+                                          <div cdk-overlay-origin="" class="mat-select-trigger ng-tns-c57-7">
+                                            <div class="mat-select-value ng-tns-c57-7" id="mat-select-value-1">
+                                              <span class="mat-select-placeholder mat-select-min-line ng-tns-c57-7 ng-star-inserted"></span>
+                                              <!---->
+                                              <!---->
+                                            </div>
+                                            <div class="mat-select-arrow-wrapper ng-tns-c57-7">
+                                              <div class="mat-select-arrow ng-tns-c57-7"></div>
+                                            </div>
+                                          </div>
+                                          <!---->
+                                        </mat-select>
+                                        <span class="mat-form-field-label-wrapper ng-tns-c13-6">
+                                          <label class="mat-form-field-label ng-tns-c13-6 mat-empty mat-form-field-empty ng-star-inserted" id="mat-form-field-label-5" for="mat-select-0" aria-owns="mat-select-0">
+                                            <!---->
+                                            <mat-label _ngcontent-yok-c79="" class="ng-tns-c13-6 ng-star-inserted">Geslacht</mat-label>
+                                            <!---->
+                                            <span aria-hidden="true" class="mat-placeholder-required mat-form-field-required-marker ng-tns-c13-6 ng-star-inserted"> *</span>
+                                            <!---->
+                                          </label>
+                                          <!---->
+                                        </span>
+                                      </div>
+                                      <!---->
+                                    </div>
+                                    <div class="mat-form-field-underline ng-tns-c13-6 ng-star-inserted">
+                                      <span class="mat-form-field-ripple ng-tns-c13-6"></span>
+                                    </div>
+                                    <!---->
+                                    <div class="mat-form-field-subscript-wrapper ng-tns-c13-6">
+                                      <!---->
+                                      <div class="mat-form-field-hint-wrapper ng-tns-c13-6 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);">
+                                        <!---->
+                                        <mat-hint _ngcontent-yok-c79="" class="mat-hint ng-tns-c13-6" id="mat-hint-2"></mat-hint>
+                                        <div class="mat-form-field-hint-spacer ng-tns-c13-6"></div>
+                                      </div>
+                                      <!---->
+                                    </div>
+                                  </div>
+                                </mat-form-field>
+                              </bq-select>
+                              <!---->
+                              <!---->
+                            </div>
+                            <!---->
+                            <!---->
+                          </div>
+                        </bq-container>
+                        <!---->
+                        <bq-container class="ng-tns-c28-8 ng-star-inserted">
+                          <div bqclasses="" bqkey="" class="ng-tns-c28-8 Horizontal" id="P163-C1-C1">
+                            <bq-heading _nghost-yok-c24="" class="ng-tns-c28-8 ng-star-inserted">
+                              <!---->
+                            </bq-heading>
+                            <!---->
+                            <div class="bq-row ng-tns-c28-8 ng-star-inserted">
+                              <bq-string-field _nghost-yok-c78="" id="straat" class="bq-column ng-star-inserted" style="z-index: 999; flex-grow: 1; flex-direction: row; box-sizing: border-box; display: flex;", onclick="devtoolsSelect(this);" onmouseover="devtoolsHover(this);" onmouseleave="devtoolsLeave(this);">
+                                <mat-form-field _ngcontent-yok-c78="" appearance="fill" bqclasses="" bqkey="" fxflex="" class="mat-form-field ng-tns-c13-9 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder ng-untouched ng-pristine ng-invalid ng-star-inserted" style="flex: 1 1 0%; box-sizing: border-box;" id="P163_Verzekerde-Straat_1">
+                                  <div class="mat-form-field-wrapper ng-tns-c13-9">
+                                    <div class="mat-form-field-flex ng-tns-c13-9">
+                                      <!---->
+                                      <!---->
+                                      <div class="mat-form-field-infix ng-tns-c13-9">
+                                        <input _ngcontent-yok-c78="" matinput="" class="mat-input-element mat-form-field-autofill-control ng-tns-c13-9 ng-untouched ng-pristine ng-invalid cdk-text-field-autofill-monitored" type="text" aria-describedby="mat-hint-3" required="" id="mat-input-2" aria-required="true" data-placeholder="" disabled>
+                                        <span class="mat-form-field-label-wrapper ng-tns-c13-9">
+                                          <label class="mat-form-field-label ng-tns-c13-9 mat-empty mat-form-field-empty ng-star-inserted" id="mat-form-field-label-7" for="mat-input-2" aria-owns="mat-input-2">
+                                            <!---->
+                                            <mat-label _ngcontent-yok-c78="" class="ng-tns-c13-9 ng-star-inserted">Straat</mat-label>
+                                            <!---->
+                                            <span aria-hidden="true" class="mat-placeholder-required mat-form-field-required-marker ng-tns-c13-9 ng-star-inserted"> *</span>
+                                            <!---->
+                                          </label>
+                                          <!---->
+                                        </span>
+                                      </div>
+                                      <!---->
+                                    </div>
+                                    <div class="mat-form-field-underline ng-tns-c13-9 ng-star-inserted">
+                                      <span class="mat-form-field-ripple ng-tns-c13-9"></span>
+                                    </div>
+                                    <!---->
+                                    <div class="mat-form-field-subscript-wrapper ng-tns-c13-9">
+                                      <!---->
+                                      <div class="mat-form-field-hint-wrapper ng-tns-c13-9 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);">
+                                        <!---->
+                                        <mat-hint _ngcontent-yok-c78="" class="mat-hint ng-tns-c13-9" id="mat-hint-3"></mat-hint>
+                                        <div class="mat-form-field-hint-spacer ng-tns-c13-9"></div>
+                                      </div>
+                                      <!---->
+                                    </div>
+                                  </div>
+                                </mat-form-field>
+                              </bq-string-field>
+                              <!---->
+                              <bq-integer-field _nghost-yok-c75="" id="huisnummer" class="bq-column ng-star-inserted" style="z-index: 999; flex-grow: 1; flex-direction: row; box-sizing: border-box; display: flex;" onclick="devtoolsSelect(this);" onmouseover="devtoolsHover(this);" onmouseleave="devtoolsLeave(this);">
+                                <mat-form-field _ngcontent-yok-c75="" appearance="fill" bqclasses="" bqkey="" fxflex="" class="mat-form-field ng-tns-c13-10 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder ng-untouched ng-pristine ng-invalid ng-star-inserted" style="flex: 1 1 0%; box-sizing: border-box;" id="P163_Verzekerde-Huisnummer_1">
+                                  <div class="mat-form-field-wrapper ng-tns-c13-10">
+                                    <div class="mat-form-field-flex ng-tns-c13-10">
+                                      <!---->
+                                      <!---->
+                                      <div class="mat-form-field-infix ng-tns-c13-10">
+                                        <input _ngcontent-yok-c75="" matinput="" class="mat-input-element mat-form-field-autofill-control ng-tns-c13-10 ng-untouched ng-pristine ng-invalid cdk-text-field-autofill-monitored" type="text" aria-describedby="mat-hint-4" required="" id="mat-input-3" aria-required="true" data-placeholder="" disabled>
+                                        <span class="mat-form-field-label-wrapper ng-tns-c13-10">
+                                          <label class="mat-form-field-label ng-tns-c13-10 mat-empty mat-form-field-empty ng-star-inserted" id="mat-form-field-label-9" for="mat-input-3" aria-owns="mat-input-3">
+                                            <!---->
+                                            <mat-label _ngcontent-yok-c75="" class="ng-tns-c13-10 ng-star-inserted">Huisnummer</mat-label>
+                                            <!---->
+                                            <span aria-hidden="true" class="mat-placeholder-required mat-form-field-required-marker ng-tns-c13-10 ng-star-inserted"> *</span>
+                                            <!---->
+                                          </label>
+                                          <!---->
+                                        </span>
+                                      </div>
+                                      <!---->
+                                    </div>
+                                    <div class="mat-form-field-underline ng-tns-c13-10 ng-star-inserted">
+                                      <span class="mat-form-field-ripple ng-tns-c13-10"></span>
+                                    </div>
+                                    <!---->
+                                    <div class="mat-form-field-subscript-wrapper ng-tns-c13-10">
+                                      <!---->
+                                      <div class="mat-form-field-hint-wrapper ng-tns-c13-10 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);">
+                                        <!---->
+                                        <mat-hint _ngcontent-yok-c75="" class="mat-hint ng-tns-c13-10" id="mat-hint-4"></mat-hint>
+                                        <div class="mat-form-field-hint-spacer ng-tns-c13-10"></div>
+                                      </div>
+                                      <!---->
+                                    </div>
+                                  </div>
+                                </mat-form-field>
+                              </bq-integer-field>
+                              <!---->
+                              <bq-string-field _nghost-yok-c78="" id="toevoeging" class="bq-column ng-star-inserted" style="z-index: 999; flex-grow: 1; flex-direction: row; box-sizing: border-box; display: flex;" onclick="devtoolsSelect(this);" onmouseover="devtoolsHover(this);" onmouseleave="devtoolsLeave(this);">
+                                <mat-form-field _ngcontent-yok-c78="" appearance="fill" bqclasses="" bqkey="" fxflex="" class="mat-form-field ng-tns-c13-11 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label ng-pristine ng-valid ng-star-inserted ng-touched mat-form-field-hide-placeholder" style="flex: 1 1 0%; box-sizing: border-box;" id="P163_Verzekerde-HuisnummerToevoeging_1">
+                                  <div class="mat-form-field-wrapper ng-tns-c13-11">
+                                    <div class="mat-form-field-flex ng-tns-c13-11">
+                                      <!---->
+                                      <!---->
+                                      <div class="mat-form-field-infix ng-tns-c13-11">
+                                        <input _ngcontent-yok-c78="" matinput="" class="mat-input-element mat-form-field-autofill-control ng-tns-c13-11 ng-pristine ng-valid cdk-text-field-autofill-monitored ng-touched" type="text" aria-describedby="mat-hint-5" id="mat-input-4" aria-invalid="false" aria-required="false" data-placeholder="" disabled>
+                                        <span class="mat-form-field-label-wrapper ng-tns-c13-11">
+                                          <label class="mat-form-field-label ng-tns-c13-11 mat-empty mat-form-field-empty ng-star-inserted" id="mat-form-field-label-11" for="mat-input-4" aria-owns="mat-input-4">
+                                            <!---->
+                                            <mat-label _ngcontent-yok-c78="" class="ng-tns-c13-11 ng-star-inserted">Toevoeging</mat-label>
+                                            <!---->
+                                            <!---->
+                                          </label>
+                                          <!---->
+                                        </span>
+                                      </div>
+                                      <!---->
+                                    </div>
+                                    <div class="mat-form-field-underline ng-tns-c13-11 ng-star-inserted">
+                                      <span class="mat-form-field-ripple ng-tns-c13-11"></span>
+                                    </div>
+                                    <!---->
+                                    <div class="mat-form-field-subscript-wrapper ng-tns-c13-11">
+                                      <!---->
+                                      <div class="mat-form-field-hint-wrapper ng-tns-c13-11 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);">
+                                        <!---->
+                                        <mat-hint _ngcontent-yok-c78="" class="mat-hint ng-tns-c13-11" id="mat-hint-5"></mat-hint>
+                                        <div class="mat-form-field-hint-spacer ng-tns-c13-11"></div>
+                                      </div>
+                                      <!---->
+                                    </div>
+                                  </div>
+                                </mat-form-field>
+                              </bq-string-field>
+                              <!---->
+                              <!---->
+                            </div>
+                            <!---->
+                            <!---->
+                          </div>
+                        </bq-container>
+                        <!---->
+                        <bq-container class="ng-tns-c28-12 ng-star-inserted">
+                          <div bqclasses="" bqkey="" class="ng-tns-c28-12 Horizontal" id="P163-C1-C2">
+                            <bq-heading _nghost-yok-c24="" class="ng-tns-c28-12 ng-star-inserted">
+                              <!---->
+                            </bq-heading>
+                            <!---->
+                            <div class="bq-row ng-tns-c28-12 ng-star-inserted">
+                              <bq-string-field _nghost-yok-c78="" id="postcode" class="bq-column ng-star-inserted" style="z-index: 999; flex-grow: 1; flex-direction: row; box-sizing: border-box; display: flex;" onclick="devtoolsSelect(this);" onmouseover="devtoolsHover(this);" onmouseleave="devtoolsLeave(this);">
+                                <mat-form-field _ngcontent-yok-c78="" appearance="fill" bqclasses="" bqkey="" fxflex="" class="mat-form-field ng-tns-c13-13 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder ng-untouched ng-pristine ng-invalid ng-star-inserted" style="flex: 1 1 0%; box-sizing: border-box;" id="P163_Verzekerde-Postcode_1">
+                                  <div class="mat-form-field-wrapper ng-tns-c13-13">
+                                    <div class="mat-form-field-flex ng-tns-c13-13">
+                                      <!---->
+                                      <!---->
+                                      <div class="mat-form-field-infix ng-tns-c13-13">
+                                        <input _ngcontent-yok-c78="" matinput="" class="mat-input-element mat-form-field-autofill-control ng-tns-c13-13 ng-untouched ng-pristine ng-invalid cdk-text-field-autofill-monitored" type="text" aria-describedby="mat-hint-6" required="" id="mat-input-5" aria-required="true" data-placeholder="" disabled>
+                                        <span class="mat-form-field-label-wrapper ng-tns-c13-13">
+                                          <label class="mat-form-field-label ng-tns-c13-13 mat-empty mat-form-field-empty ng-star-inserted" id="mat-form-field-label-13" for="mat-input-5" aria-owns="mat-input-5">
+                                            <!---->
+                                            <mat-label _ngcontent-yok-c78="" class="ng-tns-c13-13 ng-star-inserted">Postcode</mat-label>
+                                            <!---->
+                                            <span aria-hidden="true" class="mat-placeholder-required mat-form-field-required-marker ng-tns-c13-13 ng-star-inserted"> *</span>
+                                            <!---->
+                                          </label>
+                                          <!---->
+                                        </span>
+                                      </div>
+                                      <!---->
+                                    </div>
+                                    <div class="mat-form-field-underline ng-tns-c13-13 ng-star-inserted">
+                                      <span class="mat-form-field-ripple ng-tns-c13-13"></span>
+                                    </div>
+                                    <!---->
+                                    <div class="mat-form-field-subscript-wrapper ng-tns-c13-13">
+                                      <!---->
+                                      <div class="mat-form-field-hint-wrapper ng-tns-c13-13 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);">
+                                        <!---->
+                                        <mat-hint _ngcontent-yok-c78="" class="mat-hint ng-tns-c13-13" id="mat-hint-6"></mat-hint>
+                                        <div class="mat-form-field-hint-spacer ng-tns-c13-13"></div>
+                                      </div>
+                                      <!---->
+                                    </div>
+                                  </div>
+                                </mat-form-field>
+                              </bq-string-field>
+                              <!---->
+                              <bq-string-field _nghost-yok-c78="" id="woonplaats" class="bq-column ng-star-inserted" style="z-index: 999; flex-grow: 1; flex-direction: row; box-sizing: border-box; display: flex;", onclick="devtoolsSelect(this);" onmouseover="devtoolsHover(this);" onmouseleave="devtoolsLeave(this);">
+                                <mat-form-field _ngcontent-yok-c78="" appearance="fill" bqclasses="" bqkey="" fxflex="" class="mat-form-field ng-tns-c13-14 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder ng-untouched ng-pristine ng-invalid ng-star-inserted" style="flex: 1 1 0%; box-sizing: border-box;" id="P163_Verzekerde-Woonplaats_1">
+                                  <div class="mat-form-field-wrapper ng-tns-c13-14">
+                                    <div class="mat-form-field-flex ng-tns-c13-14">
+                                      <!---->
+                                      <!---->
+                                      <div class="mat-form-field-infix ng-tns-c13-14">
+                                        <input _ngcontent-yok-c78="" matinput="" class="mat-input-element mat-form-field-autofill-control ng-tns-c13-14 ng-untouched ng-pristine ng-invalid cdk-text-field-autofill-monitored" type="text" aria-describedby="mat-hint-7" required="" id="mat-input-6" aria-required="true" data-placeholder="" disabled>
+                                        <span class="mat-form-field-label-wrapper ng-tns-c13-14">
+                                          <label class="mat-form-field-label ng-tns-c13-14 mat-empty mat-form-field-empty ng-star-inserted" id="mat-form-field-label-15" for="mat-input-6" aria-owns="mat-input-6">
+                                            <!---->
+                                            <mat-label _ngcontent-yok-c78="" class="ng-tns-c13-14 ng-star-inserted">Woonplaats</mat-label>
+                                            <!---->
+                                            <span aria-hidden="true" class="mat-placeholder-required mat-form-field-required-marker ng-tns-c13-14 ng-star-inserted"> *</span>
+                                            <!---->
+                                          </label>
+                                          <!---->
+                                        </span>
+                                      </div>
+                                      <!---->
+                                    </div>
+                                    <div class="mat-form-field-underline ng-tns-c13-14 ng-star-inserted">
+                                      <span class="mat-form-field-ripple ng-tns-c13-14"></span>
+                                    </div>
+                                    <!---->
+                                    <div class="mat-form-field-subscript-wrapper ng-tns-c13-14">
+                                      <!---->
+                                      <div class="mat-form-field-hint-wrapper ng-tns-c13-14 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);">
+                                        <!---->
+                                        <mat-hint _ngcontent-yok-c78="" class="mat-hint ng-tns-c13-14" id="mat-hint-7"></mat-hint>
+                                        <div class="mat-form-field-hint-spacer ng-tns-c13-14"></div>
+                                      </div>
+                                      <!---->
+                                    </div>
+                                  </div>
+                                </mat-form-field>
+                              </bq-string-field>
+                              <!---->
+                              <!---->
+                            </div>
+                            <!---->
+                            <!---->
+                          </div>
+                        </bq-container>
+                        <!---->
+                        <bq-select _nghost-yok-c79="" id="land" style="z-index: 999; flex-direction: row; box-sizing: border-box; display: flex;" class="ng-star-inserted", onclick="devtoolsSelect(this);" onmouseover="devtoolsHover(this);" onmouseleave="devtoolsLeave(this);">
+                          <mat-form-field _ngcontent-yok-c79="" bqkey="" fxflex="" bqclasses="" appearance="fill" class="mat-form-field ng-tns-c13-15 mat-primary mat-form-field-type-mat-select mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder ng-untouched ng-pristine ng-invalid ng-star-inserted" style="flex: 1 1 0%; box-sizing: border-box;" id="P163_Verzekerde-Land_1">
+                            <div class="mat-form-field-wrapper ng-tns-c13-15">
+                              <div class="mat-form-field-flex ng-tns-c13-15">
+                                <!---->
+                                <!---->
+                                <div class="mat-form-field-infix ng-tns-c13-15">
+                                  <mat-select _ngcontent-yok-c79="" role="combobox" aria-autocomplete="none" aria-haspopup="true" class="mat-select ng-tns-c57-16 ng-tns-c13-15 mat-select-required mat-select-empty ng-untouched ng-pristine ng-invalid ng-star-inserted" aria-labelledby="mat-form-field-label-17 mat-select-value-3" aria-describedby="mat-hint-8" id="mat-select-2" tabindex="0" aria-expanded="false" aria-required="true" aria-disabled="false" aria-invalid="false" required="">
+                                    <div cdk-overlay-origin="" class="mat-select-trigger ng-tns-c57-16">
+                                      <div class="mat-select-value ng-tns-c57-16" id="mat-select-value-3">
+                                        <span class="mat-select-placeholder mat-select-min-line ng-tns-c57-16 ng-star-inserted"></span>
+                                        <!---->
+                                        <!---->
+                                      </div>
+                                      <div class="mat-select-arrow-wrapper ng-tns-c57-16">
+                                        <div class="mat-select-arrow ng-tns-c57-16"></div>
+                                      </div>
+                                    </div>
+                                    <!---->
+                                  </mat-select>
+                                  <span class="mat-form-field-label-wrapper ng-tns-c13-15">
+                                    <label class="mat-form-field-label ng-tns-c13-15 mat-empty mat-form-field-empty ng-star-inserted" id="mat-form-field-label-17" for="mat-select-2" aria-owns="mat-select-2">
+                                      <!---->
+                                      <mat-label _ngcontent-yok-c79="" class="ng-tns-c13-15 ng-star-inserted">Land</mat-label>
+                                      <!---->
+                                      <span aria-hidden="true" class="mat-placeholder-required mat-form-field-required-marker ng-tns-c13-15 ng-star-inserted"> *</span>
+                                      <!---->
+                                    </label>
+                                    <!---->
+                                  </span>
+                                </div>
+                                <!---->
+                              </div>
+                              <div class="mat-form-field-underline ng-tns-c13-15 ng-star-inserted">
+                                <span class="mat-form-field-ripple ng-tns-c13-15"></span>
+                              </div>
+                              <!---->
+                              <div class="mat-form-field-subscript-wrapper ng-tns-c13-15">
+                                <!---->
+                                <div class="mat-form-field-hint-wrapper ng-tns-c13-15 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);">
+                                  <!---->
+                                  <mat-hint _ngcontent-yok-c79="" class="mat-hint ng-tns-c13-15" id="mat-hint-8"></mat-hint>
+                                  <div class="mat-form-field-hint-spacer ng-tns-c13-15"></div>
+                                </div>
+                                <!---->
+                              </div>
+                            </div>
+                          </mat-form-field>
+                        </bq-select>
+                        <!---->
+                        <bq-string-field _nghost-yok-c78="" id="rekeningnummer" style="z-index: 999; flex-direction: row; box-sizing: border-box; display: flex;" class="ng-star-inserted" onclick="devtoolsSelect(this);" onmouseover="devtoolsHover(this);" onmouseleave="devtoolsLeave(this);">
+                          <mat-form-field _ngcontent-yok-c78="" appearance="fill" bqclasses="" bqkey="" fxflex="" class="mat-form-field ng-tns-c13-17 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder ng-untouched ng-pristine ng-valid ng-star-inserted" style="flex: 1 1 0%; box-sizing: border-box;" id="P163_Verzekerde-BankGiroRekeningNummer_1">
+                            <div class="mat-form-field-wrapper ng-tns-c13-17">
+                              <div class="mat-form-field-flex ng-tns-c13-17">
+                                <!---->
+                                <!---->
+                                <div class="mat-form-field-infix ng-tns-c13-17">
+                                  <input _ngcontent-yok-c78="" matinput="" class="mat-input-element mat-form-field-autofill-control ng-tns-c13-17 ng-untouched ng-pristine ng-valid cdk-text-field-autofill-monitored" type="text" aria-describedby="mat-hint-9" id="mat-input-7" aria-invalid="false" aria-required="false" data-placeholder="" disabled>
+                                  <span class="mat-form-field-label-wrapper ng-tns-c13-17">
+                                    <label class="mat-form-field-label ng-tns-c13-17 mat-empty mat-form-field-empty ng-star-inserted" id="mat-form-field-label-19" for="mat-input-7" aria-owns="mat-input-7">
+                                      <!---->
+                                      <mat-label _ngcontent-yok-c78="" class="ng-tns-c13-17 ng-star-inserted">Bank/giro rekeningnummer</mat-label>
+                                      <!---->
+                                      <!---->
+                                    </label>
+                                    <!---->
+                                  </span>
+                                </div>
+                                <!---->
+                              </div>
+                              <div class="mat-form-field-underline ng-tns-c13-17 ng-star-inserted">
+                                <span class="mat-form-field-ripple ng-tns-c13-17"></span>
+                              </div>
+                              <!---->
+                              <div class="mat-form-field-subscript-wrapper ng-tns-c13-17">
+                                <!---->
+                                <div class="mat-form-field-hint-wrapper ng-tns-c13-17 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);">
+                                  <!---->
+                                  <mat-hint _ngcontent-yok-c78="" class="mat-hint ng-tns-c13-17" id="mat-hint-9"></mat-hint>
+                                  <div class="mat-form-field-hint-spacer ng-tns-c13-17"></div>
+                                </div>
+                                <!---->
+                              </div>
+                            </div>
+                          </mat-form-field>
+                        </bq-string-field>
+                        <!---->
+                        <!---->
+                      </div>
+                      <!---->
+                    </div>
+                  </bq-container>
+                  <!---->
+                  <div _ngcontent-yok-c128="" class="ng-star-inserted"></div>
+                  <bq-container class="ng-tns-c28-18 ng-star-inserted">
+                    <div bqclasses="" bqkey="" class="ng-tns-c28-18 top-container transparent Transparent" id="P163_VoettekstVerder_1">
+                      <bq-heading _nghost-yok-c24="" class="ng-tns-c28-18 ng-star-inserted">
+                        <!---->
+                      </bq-heading>
+                      <!---->
+                      <!---->
+                      <div class="ng-tns-c28-18 ng-star-inserted">
+                        <bq-button _nghost-yok-c20="" class="ng-star-inserted">
+                          <button _ngcontent-yok-c20="" bqbutton="" bqkey="" bqclasses="" mat-button="" class="mat-focus-indicator mat-button mat-button-base mat-raised-button mat-primary Primary" id="P163_Verder_1">
+                            <span class="mat-button-wrapper">
+                              <mat-icon _ngcontent-yok-c20="" role="img" class="" aria-hidden="true" data-mat-icon-type="font"></mat-icon>
+                              <!----> Verder
+                            </span>
+                            <span matripple="" class="mat-ripple mat-button-ripple"></span>
+                            <span class="mat-button-focus-overlay"></span>
+                          </button>
+                        </bq-button>
+                        <!---->
+                        <!---->
+                      </div>
+                      <!---->
+                    </div>
+                  </bq-container>
+                  <!---->
+                  <!---->
+                </div>
+                <bq-footer _ngcontent-yok-c128="" _nghost-yok-c127="">
+                  <footer _ngcontent-yok-c127="">
+                    <mat-divider _ngcontent-yok-c127="" role="separator" class="mat-divider mat-divider-horizontal" aria-orientation="horizontal"></mat-divider>
+                    <span _ngcontent-yok-c127="" align="center" class="img-logo"></span>
+                    <address _ngcontent-yok-c127="">
+                      <a _ngcontent-yok-c127="" href="https://my.blueriq.com/" target="_blank">my.blueriq.com</a>
+                      <br _ngcontent-yok-c127="">
+                      <a _ngcontent-yok-c127="" href="mailto:support@blueriq.com">support@blueriq.com</a>
+                    </address>
+                  </footer>
+                </bq-footer>
+              </bq-page>
+              <!---->
+              <!---->
+              <!---->
+            </bq-session>
+          </bq-project>
+          <bq-loading _nghost-yok-c124="" class="ng-tns-c124-0 ng-star-inserted">
+            <div _ngcontent-yok-c124="" class="loading-backdrop ng-tns-c124-0 ng-trigger ng-trigger-state" style="display: none;">
+              <div _ngcontent-yok-c124="" class="loading-wrapper ng-tns-c124-0"></div>
+            </div>
+          </bq-loading>
+          <!---->
+          <!--</ng-component>-->
+          <!---->
+        </div>
+      </bq-app-root>
+      <script src="runtime.e9cddeaa8684eea5.js" type="module"></script>
+      <script src="polyfills.23aa6be9c3eacf4a.js" type="module"></script>
+      <!--<script src="main.a696f39fae524545.js" type="module"></script>-->
+      <div class="cdk-live-announcer-element cdk-visually-hidden" aria-atomic="true" aria-live="polite" id="cdk-live-announcer-0"></div>
+    </div>
+    <div class="splitter" style="cursor: col-resize;"></div>
+    <iframe id="bar" src="../../bar.html" class="devltools" style="order: 3; width: 400px; height: 100%;"></iframe>
+  </body>
+</html>
